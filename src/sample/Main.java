@@ -15,11 +15,11 @@ public class Main extends Application {
         System.out.println("fxml loaded");
 
         // bootstrap "window" named stage
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("First Task");
         System.out.println("set title");
 
         // set scene into stage in defined size
-        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setScene(new Scene(root, 800, 600));
         System.out.println("set scene");
 
         // let's go

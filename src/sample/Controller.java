@@ -21,6 +21,7 @@ public class Controller implements Initializable {
     // add fx:id and use intelliJ to create field in controller
     public TextField InputTextField;
     public Label OutputLabel;
+    public Label OutputLabelSmile;
 
     public Controller()
     {
@@ -33,6 +34,12 @@ public class Controller implements Initializable {
         viewModel.calculateOutputString();
     }
 
+    @FXML
+    public void putSmiley(ActionEvent actionEvent) {
+        System.out.println("Smiley");
+        viewModel.setOutputSmiley();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Controller init");
@@ -41,5 +48,6 @@ public class Controller implements Initializable {
 
         // OutputLabel.textProperty().bindBidirectional(viewModel.outputProperty());
         Bindings.bindBidirectional(OutputLabel.textProperty(), viewModel.outputProperty());
+        Bindings.bindBidirectional(OutputLabelSmile.textProperty(), viewModel.outputSmiley());
     }
 }

@@ -49,4 +49,25 @@
             </font>
         </Label>
     </children>
+    <children>
+        <Label text="Do not click this Button" GridPane.hgrow="SOMETIMES" GridPane.vgrow="NEVER">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="100.0" />
+            </GridPane.margin>
+        </Label>
+        <Button mnemonicParsing="false" text="Execute"
+                GridPane.columnIndex="2" GridPane.hgrow="SOMETIMES" onAction="#putSmiley">
+            <GridPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="100.0" />
+            </GridPane.margin>
+        </Button>
+        <Label prefHeight="236.0" prefWidth="361.0" style="-fx-alignment: center;"
+               text="hi"
+               textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2"
+               fx:id="OutputLabelSmile">
+            <font>
+                <Font size="47.0" />
+            </font>
+        </Label>
+    </children>
 </GridPane>

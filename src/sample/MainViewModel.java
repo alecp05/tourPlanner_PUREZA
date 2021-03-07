@@ -7,6 +7,7 @@ public class MainViewModel {
     // http://openbook.rheinwerk-verlag.de/javainsel/12_004.html
     private final StringProperty input = new SimpleStringProperty("");
     private final StringProperty output = new SimpleStringProperty("Hello VM!");
+    private final StringProperty outputSmiley = new SimpleStringProperty("");
 
     public StringProperty inputProperty() {
         System.out.println("VM: get input prop");
@@ -16,6 +17,14 @@ public class MainViewModel {
     public StringProperty outputProperty() {
         System.out.println("VM: get output prop");
         return output;
+    }
+    public StringProperty outputSmiley() {
+        System.out.println("VM: get output prop 2");
+        return outputSmiley;
+    }
+
+    public void setOutputSmiley(){
+        this.outputSmiley.set("You clicked :)!");
     }
 
     public void calculateOutputString() {
