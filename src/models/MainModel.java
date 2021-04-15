@@ -1,9 +1,9 @@
-package sample;
+package models;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class MainViewModel {
+public class MainModel {
     // http://openbook.rheinwerk-verlag.de/javainsel/12_004.html
     private final StringProperty input = new SimpleStringProperty("");
     private final StringProperty output = new SimpleStringProperty("Hello VM!");

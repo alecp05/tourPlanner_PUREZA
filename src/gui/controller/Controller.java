@@ -1,12 +1,10 @@
-package sample;
+package gui.controller;
 
+import models.MainModel;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.ObjectPropertyBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -16,7 +14,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     // create custom viewmodel
-    public MainViewModel viewModel = new MainViewModel();
+    public MainModel viewModel = new MainModel();
 
     // add fx:id and use intelliJ to create field in controller
     public TextField InputTextField;

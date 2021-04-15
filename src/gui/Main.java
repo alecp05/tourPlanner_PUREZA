@@ -1,4 +1,4 @@
-package sample;
+package gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         // fxml created with SceneBuilder
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/sample.fxml"));
         System.out.println("fxml loaded");
 
         // bootstrap "window" named stage
