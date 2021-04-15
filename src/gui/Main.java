@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         // fxml created with SceneBuilder
-        Parent root = FXMLLoader.load(getClass().getResource("views/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/homeView.fxml"));
         System.out.println("fxml loaded");
 
         // bootstrap "window" named stage
@@ -19,7 +19,7 @@ public class Main extends Application {
         System.out.println("set title");
 
         // set scene into stage in defined size
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, 800, 500));
         System.out.println("set scene");
 
         // let's go
