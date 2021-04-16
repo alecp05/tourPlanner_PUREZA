@@ -7,13 +7,13 @@
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="525.0" style="-fx-background-color: #17252A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.homeViewController">
   <columnConstraints>
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="684.8" minWidth="10.0" prefWidth="469.0" />
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="425.0" minWidth="0.0" prefWidth="215.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="1200.0" minWidth="10.0" prefWidth="469.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" minWidth="0.0" prefWidth="215.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="173.0" minHeight="8.0" prefHeight="36.8" vgrow="ALWAYS" />
-    <RowConstraints maxHeight="260.0" minHeight="0.0" prefHeight="39.0" vgrow="ALWAYS" />
-    <RowConstraints maxHeight="394.2" minHeight="10.0" prefHeight="237.0" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="39.0" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="237.0" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
       <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Tour Planner" textFill="WHITE">

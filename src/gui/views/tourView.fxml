@@ -7,14 +7,14 @@
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="525.0" style="-fx-background-color: #17252A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.tourViewController">
     <columnConstraints>
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="684.8" minWidth="10.0" prefWidth="469.0" />
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="425.0" minWidth="0.0" prefWidth="215.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="1200.0" minWidth="10.0" prefWidth="469.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" minWidth="0.0" prefWidth="215.0" />
   </columnConstraints>
     <rowConstraints>
-      <RowConstraints maxHeight="173.0" minHeight="8.0" prefHeight="36.8" vgrow="ALWAYS" />
-      <RowConstraints maxHeight="260.0" minHeight="0.0" prefHeight="39.0" vgrow="ALWAYS" />
-      <RowConstraints maxHeight="394.2" minHeight="10.0" prefHeight="327.6" vgrow="ALWAYS" />
-      <RowConstraints maxHeight="394.2" minHeight="10.0" prefHeight="84.0" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="100.0" minHeight="8.0" prefHeight="36.8" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="39.0" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="327.6" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="84.0" vgrow="ALWAYS" />
     </rowConstraints>
     <children>
       <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Tours" textFill="WHITE">
@@ -32,18 +32,18 @@
           <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
         </GridPane.margin>
       </TextField>
-      <SplitPane dividerPositions="0.2677329624478442" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-radius: 25px; -fx-background-color: #DEF2F1;" GridPane.rowIndex="2">
+      <SplitPane dividerPositions="0.2225" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-radius: 25px; -fx-background-color: #DEF2F1;" GridPane.rowIndex="2">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 25px;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 25px;">
             <children>
               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #DEF2F1;" text="Tours" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="132.2" AnchorPane.topAnchor="2.0">
                 <font>
                   <Font name="Century Gothic" size="15.0" />
                 </font>
               </Label>
-                  <HBox layoutX="56.0" layoutY="37.0" prefHeight="20.0" prefWidth="245.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="37.0">
+                  <HBox layoutX="56.0" layoutY="37.0" prefHeight="20.0" prefWidth="245.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="37.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="84.0" style="-fx-background-color: #DEF2F1; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 5, 0, 0, 0);" text="+">
+                        <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="84.0" style="-fx-background-color: #DEF2F1; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 5, 0, 0, 0);" text="+" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -51,12 +51,12 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </Button>
-                        <Pane prefHeight="200.0" prefWidth="200.0">
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
                         </Pane>
-                        <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="80.0" style="-fx-background-color: #DEF2F1; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 5, 0, 0, 0);" text="-">
+                        <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="80.0" style="-fx-background-color: #DEF2F1; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 5, 0, 0, 0);" text="-" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -64,12 +64,12 @@
                               <Insets left="20.0" right="20.0" />
                            </padding>
                         </Button>
-                        <Pane prefHeight="200.0" prefWidth="200.0">
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
                         </Pane>
-                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="95.0" style="-fx-background-color: #DEF2F1; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 5, 0, 0, 0);" text="[]">
+                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="95.0" style="-fx-background-color: #DEF2F1; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 5, 0, 0, 0);" text="[]" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="14.0" />
                            </font>
