@@ -2,9 +2,9 @@ package businesslayer;
 
 public class logManagerFactory {
 
-    logImplementation logManager;
+    private static logManager logManager;
 
-    public logImplementation GetLogManager(){
+    public static logManager GetLogManager(){
         if(logManager == null){
             logManager = new logImplementation();
         }

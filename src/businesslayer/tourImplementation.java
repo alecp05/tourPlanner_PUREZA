@@ -5,7 +5,7 @@ import models.tourModel;
 
 import java.util.List;
 
-public class tourImplementation {
+public class tourImplementation implements tourManager{
 
     tourModelDAO tourModelDAO = new tourModelDAO();
 

@@ -2,9 +2,9 @@ package businesslayer;
 
 public class tourManagerFactory {
 
-    tourImplementation tourManager;
+    private static tourManager tourManager;
 
-    public tourImplementation GetTourManager(){
+    public static tourManager GetTourManager(){
         if(tourManager == null){
             tourManager = new tourImplementation();
         }

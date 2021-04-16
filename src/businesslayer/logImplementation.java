@@ -5,7 +5,7 @@ import models.logModel;
 
 import java.util.List;
 
-public class logImplementation {
+public class logImplementation implements logManager{
 
     logModelDAO logModelDAO = new logModelDAO();
 
