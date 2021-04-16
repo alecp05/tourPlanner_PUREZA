@@ -8,7 +8,7 @@ import java.text.DateFormat;
 public class logModel {
 
     @Getter @Setter public String tourName;
-    @Getter @Setter public DateFormat logDate;
+    @Getter @Setter public String logDate;
     @Getter @Setter public String logReport;
     @Getter @Setter public String logDistance;
     @Getter @Setter public String logTotalTime;
@@ -19,7 +19,7 @@ public class logModel {
     @Getter @Setter public String logStartingPoint;
     @Getter @Setter public String logEndPoint;
 
-    public logModel(String name, DateFormat date, String report, String distance, String totalTime,
+    public logModel(String name, String date, String report, String distance, String totalTime,
                     int rating, String averageSpeed, String weather, int breaks, String start, String end){
 
         tourName = name;
