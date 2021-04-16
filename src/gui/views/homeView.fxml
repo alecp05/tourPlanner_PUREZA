@@ -35,7 +35,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;">
                <children>
-                  <ListView layoutY="19.0" prefHeight="82.0" prefWidth="358.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                  <ListView fx:id="tourLogModels" layoutY="19.0" prefHeight="82.0" prefWidth="358.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 10px;" text="Tours" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font name="Century Gothic" size="15.0" />
