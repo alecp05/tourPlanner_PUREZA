@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="525.0" style="-fx-background-color: #3e3531;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.homeViewController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="525.0" style="-fx-background-color: #17252A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.homeViewController">
   <columnConstraints>
     <ColumnConstraints hgrow="ALWAYS" maxWidth="684.8" minWidth="10.0" prefWidth="469.0" />
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="424.59999999999997" minWidth="0.0" prefWidth="214.60000000000002" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="425.0" minWidth="0.0" prefWidth="215.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="172.39999999999998" minHeight="7.400002861022955" prefHeight="36.8" vgrow="ALWAYS" />
-    <RowConstraints maxHeight="259.399997138977" minHeight="0.0" prefHeight="38.39999999999999" vgrow="ALWAYS" />
-    <RowConstraints maxHeight="394.2" minHeight="10.0" prefHeight="236.40000000000003" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="173.0" minHeight="8.0" prefHeight="36.8" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="260.0" minHeight="0.0" prefHeight="39.0" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="394.2" minHeight="10.0" prefHeight="237.0" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #c54f20; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Tour Planner" textFill="WHITE">
+      <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Tour Planner" textFill="WHITE">
          <font>
             <Font name="Forte" size="25.0" />
          </font>
@@ -31,21 +31,21 @@
             <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </TextField>
-      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" GridPane.rowIndex="2">
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-radius: 25px;" GridPane.rowIndex="2">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #c54f20;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;">
                <children>
                   <ListView layoutY="19.0" prefHeight="82.0" prefWidth="358.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #3b2b25; -fx-background-radius: 10px;" text="Tours" textFill="WHITE" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 10px;" text="Tours" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font name="Century Gothic" size="15.0" />
                      </font>
                   </Label>
                </children></AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #c54f20;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;">
                <children>
                   <ListView layoutX="-1.0" layoutY="21.0" prefHeight="82.0" prefWidth="358.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
-                   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #3b2b25; -fx-background-radius: 10px;" text="Logs" textFill="WHITE" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
+                   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 10px;" text="Logs" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0">
                        <font>
                            <Font name="Century Gothic" size="15.0" />
                        </font>
@@ -56,7 +56,7 @@
             <Insets bottom="30.0" left="20.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </SplitPane>
-      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #3b2b25;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
@@ -64,7 +64,7 @@
             <Insets bottom="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #683724; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="30.0" left="20.0" right="20.0" top="10.0" />
          </GridPane.margin>
@@ -78,7 +78,7 @@
                </VBox.margin>
             </Label>
             <Pane prefHeight="4.0" prefWidth="95.0" style="-fx-background-color: FFFFFF;" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #3b2b25;" text="Tours" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #DEF2F1;" text="Tours" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -86,7 +86,7 @@
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #3b2b25;" text="Logs" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #DEF2F1;" text="Logs" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>

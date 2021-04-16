@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         // fxml created with SceneBuilder
-        Parent root = FXMLLoader.load(getClass().getResource("views/homeView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/tourView.fxml"));
         System.out.println("fxml loaded");
 
         // bootstrap "window" named stage
