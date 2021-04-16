@@ -1,6 +1,5 @@
 package dataaccesslayer;
 
-import models.logModel;
 import models.tourModel;
 
 import java.util.List;
@@ -14,5 +13,4 @@ public class tourModelDAO {
     }
 
     public List<tourModel> GetTourItems(){return dataAccess.GetTourItems();}
-    public List<logModel> GetLogItems(){return dataAccess.GetLogItems();}
 }
