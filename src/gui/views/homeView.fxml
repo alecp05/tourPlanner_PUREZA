@@ -11,7 +11,7 @@
     <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" minWidth="0.0" prefWidth="215.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="173.0" minHeight="8.0" prefHeight="36.8" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="100.0" minHeight="8.0" prefHeight="36.8" vgrow="ALWAYS" />
     <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="39.0" vgrow="ALWAYS" />
     <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="237.0" vgrow="ALWAYS" />
   </rowConstraints>
@@ -23,7 +23,7 @@
          <GridPane.margin>
             <Insets bottom="10.0" left="20.0" right="10.0" top="20.0" />
          </GridPane.margin></Label>
-      <TextField prefHeight="30.0" prefWidth="200.0" promptText="Search" style="-fx-background-color: #CED5D6;" GridPane.rowIndex="1">
+      <TextField fx:id="searchingField" prefHeight="30.0" prefWidth="200.0" promptText="Search" style="-fx-background-color: #CED5D6;" GridPane.rowIndex="1">
          <font>
             <Font name="Century Gothic" size="14.0" />
          </font>
@@ -35,35 +35,52 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;">
                <children>
-                  <ListView fx:id="tourLogModels" layoutY="19.0" prefHeight="69.0" prefWidth="170.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 10px;" text="Tours" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font name="Century Gothic" size="15.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="tabletest" layoutX="183.0" layoutY="12.0" prefHeight="167.0" prefWidth="307.0">
+                  <TableView fx:id="tableTourView" editable="true" layoutY="25.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #DEF2F1;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                     <columns>
-                      <TableColumn fx:id="test1" prefWidth="56.5999755859375" text="test1" />
-                        <TableColumn fx:id="test2" prefWidth="50.60005187988281" text="test2" />
-                      <TableColumn fx:id="test3" prefWidth="61.0" text="test3" />
+                      <TableColumn fx:id="tourNameId" prefWidth="150.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Tour-Name" />
+                        <TableColumn fx:id="tourDescriptionId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Description" />
+                      <TableColumn fx:id="tourInformationId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Route-Information" />
+                        <TableColumn fx:id="tourDistanceId" prefWidth="120.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Distance" />
+                        <TableColumn fx:id="tourStartId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Starting-Point" />
+                        <TableColumn fx:id="tourEndId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="End-Point" />
+                        <TableColumn prefWidth="255.0" style="-fx-background-color: #DEF2F1;" />
                     </columns>
                   </TableView>
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;">
                <children>
-                  <ListView layoutX="-1.0" layoutY="21.0" prefHeight="82.0" prefWidth="358.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
                    <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 10px;" text="Logs" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0">
                        <font>
                            <Font name="Century Gothic" size="15.0" />
                        </font>
                    </Label>
+                   <TableView fx:id="tableLogView" editable="true" layoutY="25.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #DEF2F1;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                       <columns>
+                           <TableColumn fx:id="logNameId" prefWidth="150.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Tour-Name" />
+                           <TableColumn fx:id="logDescriptionId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Date" />
+                           <TableColumn fx:id="logInformationId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Report" />
+                           <TableColumn fx:id="logDistanceId" prefWidth="120.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Distance" />
+                           <TableColumn fx:id="logTotalTimeId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Total-Time" />
+                           <TableColumn fx:id="logRatingId" prefWidth="50.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Rating" />
+                           <TableColumn fx:id="logSpeedId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Average-Speed" />
+                           <TableColumn fx:id="logWeatherId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Weather-Condition" />
+                           <TableColumn fx:id="logBreaksId" prefWidth="60.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Breaks-Taken" />
+                           <TableColumn fx:id="logStartId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Starting-Point" />
+                           <TableColumn fx:id="logEndId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Ending-Point" />
+                       </columns>
+                   </TableView>
                </children></AnchorPane>
         </items>
          <GridPane.margin>
             <Insets bottom="30.0" left="20.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </SplitPane>
-      <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#searchingAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>

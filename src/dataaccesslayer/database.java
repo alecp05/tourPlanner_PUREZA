@@ -20,9 +20,9 @@ public class database implements dataAccess{
     @Override
     public List<tourModel> GetTourItems() {
         tourModel[] tourModels = {
-                new tourModel("Tour 1", "Vienna to Lower Austria", "2 Days Tour", 170),
-                new tourModel("Tour 2", "Vienna to Upper Austria", "4 Days Tour", 220),
-                new tourModel("Tour 3", "Vienna to Salzburg", "10 Days Tour", 330)
+                new tourModel("Tour 1", "Vienna to Lower Austria", "2 Days Tour", 170 ,"Vienna","Lower Austria"),
+                new tourModel("Tour 2", "Vienna to Upper Austria", "4 Days Tour", 220,"Vienna","Upper Austria"),
+                new tourModel("Tour 3", "Vienna to Salzburg", "10 Days Tour", 330,"Vienna","Salzburg")
         };
         return new ArrayList<tourModel>(Arrays.asList(tourModels));
     }
