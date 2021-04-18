@@ -18,7 +18,7 @@ public class Main extends Application {
         primaryStage.setResizable(true);
 
         // fxml created with SceneBuilder
-        Parent root = FXMLLoader.load(getClass().getResource("views/homeView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/addTourView.fxml"));
         System.out.println("fxml loaded");
 
         // bootstrap "window" named stage
