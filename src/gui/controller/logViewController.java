@@ -126,7 +126,7 @@ public class logViewController implements Initializable {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/addLogView.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Adding Logs");
-            stage.setScene(new Scene(root, 900, 550));
+            stage.setScene(new Scene(root, 850, 500));
             stage.show();
         }
         catch (IOException e) {

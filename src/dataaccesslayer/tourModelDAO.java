@@ -13,4 +13,8 @@ public class tourModelDAO {
     }
 
     public List<tourModel> GetTourItems(){return dataAccess.GetTourItems();}
+
+    public void InsertTourItems(String name, String description, int distance, String start, String end){
+        dataAccess.InsertTourItems(name, description, distance, start, end);
+    }
 }

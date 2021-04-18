@@ -57,6 +57,7 @@ public class tourViewController implements Initializable {
         //tour TableView
         setUpTourTable();
         formatTourTableColumns();
+
     }
 
     private void setUpTourTable(){

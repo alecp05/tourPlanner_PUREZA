@@ -30,6 +30,10 @@ public class tourImplementation implements tourManager{
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public void InsertTourItem(String name, String description, int distance, String start, String end) {
+        tourModelDAO.InsertTourItems(name, description, distance, start, end);
+    }
 
 
 }

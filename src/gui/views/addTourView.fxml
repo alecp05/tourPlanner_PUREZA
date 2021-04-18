@@ -26,7 +26,7 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <TextField promptText="Tour Name">
+            <TextField fx:id="tourName" promptText="Tour Name">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
@@ -39,7 +39,7 @@
                <Font name="Century Gothic" size="14.0" />
              </font>
            </Label>
-           <TextField promptText="Description">
+           <TextField fx:id="tourDescription" promptText="Description">
              <font>
                <Font name="Century Gothic" size="12.0" />
              </font>
@@ -47,12 +47,12 @@
                <Insets bottom="10.0" left="10.0" right="10.0" />
              </VBox.margin>
            </TextField>
-           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Distance:" textAlignment="CENTER" textFill="WHITE">
+           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="136.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Distance (in km):" textAlignment="CENTER" textFill="WHITE">
              <font>
                <Font name="Century Gothic" size="14.0" />
              </font>
            </Label>
-           <TextField promptText="Distance">
+           <TextField fx:id="tourDistance" promptText="Distance">
              <font>
                <Font name="Century Gothic" size="12.0" />
              </font>
@@ -65,7 +65,7 @@
                <Font name="Century Gothic" size="14.0" />
              </font>
            </Label>
-           <TextField promptText="Start Point">
+           <TextField fx:id="tourStart" promptText="Start Point">
              <font>
                <Font name="Century Gothic" size="12.0" />
              </font>
@@ -78,7 +78,7 @@
                <Font name="Century Gothic" size="14.0" />
              </font>
            </Label>
-           <TextField promptText="End Point">
+           <TextField fx:id="tourEnd" promptText="End Point">
              <font>
                <Font name="Century Gothic" size="12.0" />
              </font>
@@ -100,7 +100,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #17252A;" text="ADD" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addTourButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #17252A;" text="ADD" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets bottom="10.0" left="50.0" top="10.0" />
                </HBox.margin>

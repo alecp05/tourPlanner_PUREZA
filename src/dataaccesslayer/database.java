@@ -117,4 +117,9 @@ public class database implements dataAccess{
 
         return logs;
     }
+
+    @Override
+    public void InsertTourItems(String name, String description, int distance, String start, String end) {
+        System.out.println(name + description + distance + start + end);
+    }
 }

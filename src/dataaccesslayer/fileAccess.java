@@ -24,4 +24,9 @@ public class fileAccess implements dataAccess{
     public List<logModel> GetLogItems() {
         return null;
     }
+
+    @Override
+    public void InsertTourItems(String name, String description, int distance, String start, String end) {
+
+    }
 }

@@ -8,4 +8,5 @@ public interface tourManager {
 
     public List<tourModel> GetTourItems();
     public List<tourModel> SearchTourItems(String itemName, boolean caseSensitive);
+    public void InsertTourItem(String name, String description, int distance, String start, String end);
 }
