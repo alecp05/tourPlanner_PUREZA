@@ -34,8 +34,6 @@ public class homeViewController implements Initializable {
     @FXML
     private TableColumn<tourModel, String> tourDescriptionId;
     @FXML
-    private TableColumn<tourModel, String> tourInformationId;
-    @FXML
     private TableColumn<tourModel, Integer> tourDistanceId;
     @FXML
     private TableColumn<tourModel, String> tourStartId;
@@ -117,7 +115,6 @@ public class homeViewController implements Initializable {
     private void formatTourTableColumns(){
         tourNameId.setCellValueFactory(new PropertyValueFactory<tourModel, String>("tourName"));
         tourDescriptionId.setCellValueFactory(new PropertyValueFactory<tourModel, String>("tourDescription"));
-        tourInformationId.setCellValueFactory(new PropertyValueFactory<tourModel, String>("tourRouteInformation"));
         tourDistanceId.setCellValueFactory(new PropertyValueFactory<tourModel, Integer>("tourDistance"));
         tourStartId.setCellValueFactory(new PropertyValueFactory<tourModel, String>("tourStart"));
         tourEndId.setCellValueFactory(new PropertyValueFactory<tourModel, String>("tourEnd"));
@@ -175,5 +172,18 @@ public class homeViewController implements Initializable {
         tableTourItems.addAll(tourItems);
         List<logModel> logItems = logManager.SearchLogItems(searchingField.textProperty().getValue(), false);
         tableLogItems.addAll(logItems);
+    }
+
+    public void clearAction(ActionEvent actionEvent) {
+        tableTourItems.clear();
+        tableLogItems.clear();
+
+        searchingField.textProperty().setValue("");
+
+        List<tourModel> TourItems = tourManager.GetTourItems();
+        tableTourItems.addAll(TourItems);
+
+        List<logModel> LogItems = logManager.GetLogItems();
+        tableLogItems.addAll(LogItems);
     }
 }

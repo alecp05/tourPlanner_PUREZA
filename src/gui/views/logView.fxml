@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -13,8 +14,8 @@
     <rowConstraints>
         <RowConstraints maxHeight="100.0" minHeight="8.0" prefHeight="36.8" vgrow="ALWAYS" />
         <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="39.0" vgrow="ALWAYS" />
-        <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="327.6" vgrow="ALWAYS" />
-        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="84.0" vgrow="ALWAYS" />
+        <RowConstraints maxHeight="1100.0" minHeight="10.0" prefHeight="327.6" vgrow="ALWAYS" />
+        <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="84.0" vgrow="ALWAYS" />
     </rowConstraints>
     <children>
         <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Logs" textFill="WHITE">
@@ -24,7 +25,7 @@
             <GridPane.margin>
                 <Insets bottom="10.0" left="20.0" right="10.0" top="20.0" />
             </GridPane.margin></Label>
-        <TextField prefHeight="30.0" prefWidth="200.0" promptText="Search" style="-fx-background-color: #CED5D6;" GridPane.rowIndex="1">
+        <TextField fx:id="searchingField" prefHeight="30.0" prefWidth="200.0" promptText="Search" style="-fx-background-color: #CED5D6;" GridPane.rowIndex="1">
             <font>
                 <Font name="Century Gothic" size="14.0" />
             </font>
@@ -79,22 +80,42 @@
                                 </Button>
                             </children></HBox>
                     </children></AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-radius: 25px;">
-                    <children>
-                        <ListView layoutX="-1.0" prefHeight="208.0" prefWidth="358.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                    </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-radius: 25px; -fx-background-color: #3aafa9;">
+               <children>
+                  <TableView fx:id="tableLogView" editable="true" prefHeight="222.0" prefWidth="368.0" style="-fx-background-color: #DEF2F1; -fx-background-radius: 25px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.6000000000000227" AnchorPane.topAnchor="0.0">
+                      <columns>
+                          <TableColumn fx:id="logNameId" prefWidth="150.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Tour-Name" />
+                          <TableColumn fx:id="logDescriptionId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Date" />
+                          <TableColumn fx:id="logInformationId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Report" />
+                          <TableColumn fx:id="logDistanceId" prefWidth="120.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Distance" />
+                          <TableColumn fx:id="logTotalTimeId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Total-Time" />
+                          <TableColumn fx:id="logRatingId" prefWidth="50.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Rating" />
+                          <TableColumn fx:id="logSpeedId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Average-Speed" />
+                          <TableColumn fx:id="logWeatherId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Weather-Condition" />
+                          <TableColumn fx:id="logBreaksId" prefWidth="60.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Breaks-Taken" />
+                          <TableColumn fx:id="logStartId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Starting-Point" />
+                          <TableColumn fx:id="logEndId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Ending-Point" />
+                      </columns>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </TableView>
+               </children></AnchorPane>
             </items>
             <GridPane.margin>
                 <Insets bottom="30.0" left="20.0" right="10.0" top="10.0" />
             </GridPane.margin>
         </SplitPane>
-        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Button alignment="CENTER" mnemonicParsing="false" onAction="#searchingAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <font>
                 <Font name="Century Gothic" size="12.0" />
             </font>
             <GridPane.margin>
                 <Insets bottom="10.0" top="10.0" />
             </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </Button>
         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
@@ -117,6 +138,9 @@
                     <font>
                         <Font name="Century Gothic" size="16.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
                 <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#homeButtonAction" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #DEF2F1;" text="Home" VBox.vgrow="ALWAYS">
                     <font>
@@ -125,9 +149,12 @@
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
             </children></VBox>
-        <HBox prefHeight="69.0" prefWidth="390.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.rowIndex="3">
+        <HBox prefHeight="69.0" prefWidth="390.0" style="-fx-background-color: #224C4A; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.rowIndex="3">
             <GridPane.margin>
                 <Insets bottom="30.0" left="20.0" right="10.0" top="10.0" />
             </GridPane.margin>
@@ -145,5 +172,13 @@
                 </Button>
             </children>
         </HBox>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Clear" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="10.0" left="80.0" top="10.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font>
+      </Button>
     </children>
 </GridPane>

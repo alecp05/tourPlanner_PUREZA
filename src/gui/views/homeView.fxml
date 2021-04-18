@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -43,13 +44,15 @@
                   <TableView fx:id="tableTourView" editable="true" layoutY="25.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #DEF2F1;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                     <columns>
                       <TableColumn fx:id="tourNameId" prefWidth="150.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Tour-Name" />
-                        <TableColumn fx:id="tourDescriptionId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Description" />
-                      <TableColumn fx:id="tourInformationId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Route-Information" />
-                        <TableColumn fx:id="tourDistanceId" prefWidth="120.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Distance" />
-                        <TableColumn fx:id="tourStartId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Starting-Point" />
-                        <TableColumn fx:id="tourEndId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="End-Point" />
-                        <TableColumn prefWidth="255.0" style="-fx-background-color: #DEF2F1;" />
+                        <TableColumn fx:id="tourDescriptionId" prefWidth="250.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Description" />
+                        <TableColumn fx:id="tourDistanceId" prefWidth="120.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Distance" />
+                        <TableColumn fx:id="tourStartId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Starting-Point" />
+                        <TableColumn fx:id="tourEndId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="End-Point" />
+                        <TableColumn prefWidth="330.0" style="-fx-background-color: #DEF2F1;" />
                     </columns>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                   </TableView>
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;">
@@ -73,6 +76,9 @@
                            <TableColumn fx:id="logStartId" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-font-weight: bold;" text="Starting-Point" />
                            <TableColumn fx:id="logEndId" prefWidth="160.0" style="-fx-background-color: #2B7A78; -fx-font-weight: bold;" text="Ending-Point" />
                        </columns>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                    </TableView>
                </children></AnchorPane>
         </items>
@@ -87,6 +93,9 @@
          <GridPane.margin>
             <Insets bottom="10.0" top="10.0" />
          </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
@@ -109,6 +118,9 @@
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logButtonAction" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #DEF2F1;" text="Logs" VBox.vgrow="ALWAYS">
                <font>
@@ -117,7 +129,18 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children></VBox>
+       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Clear" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+           <GridPane.margin>
+               <Insets bottom="10.0" left="80.0" top="10.0" />
+           </GridPane.margin>
+           <font>
+               <Font name="Century Gothic" size="12.0" />
+           </font>
+       </Button>
    </children>
 </GridPane>
