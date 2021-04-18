@@ -18,15 +18,15 @@ public class Main extends Application {
         primaryStage.setResizable(true);
 
         // fxml created with SceneBuilder
-        Parent root = FXMLLoader.load(getClass().getResource("views/addTourView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/homeView.fxml"));
         System.out.println("fxml loaded");
 
         // bootstrap "window" named stage
-        primaryStage.setTitle("First Task");
+        primaryStage.setTitle("Welcome to TourPlanner 1.0");
         System.out.println("set title");
 
         // set scene into stage in defined size
-        primaryStage.setScene(new Scene(root, 800, 700));
+        primaryStage.setScene(new Scene(root, 900, 600));
         System.out.println("set scene");
 
         // let's go
