@@ -18,7 +18,7 @@
         <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="84.0" vgrow="ALWAYS" />
     </rowConstraints>
     <children>
-        <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Logs" textFill="WHITE">
+        <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Logs" textFill="WHITE">
             <font>
                 <Font name="Forte" size="25.0" />
             </font>

@@ -1,12 +1,14 @@
-package dataaccesslayer;
+package dataaccesslayer.daos;
 
+import dataaccesslayer.database.dataAccess;
+import dataaccesslayer.database.database;
 import models.tourModel;
 
 import java.util.List;
 
 public class tourModelDAO {
 
-    private dataAccess dataAccess;
+    private dataaccesslayer.database.dataAccess dataAccess;
 
     public tourModelDAO(){
         dataAccess = new database();

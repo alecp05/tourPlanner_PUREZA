@@ -88,7 +88,7 @@
            </TextField>
          </children>
       </VBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;" text="Add a Tour" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9;" text="Add a Tour" textAlignment="CENTER" textFill="WHITE">
          <GridPane.margin>
             <Insets left="50.0" right="50.0" />
          </GridPane.margin>

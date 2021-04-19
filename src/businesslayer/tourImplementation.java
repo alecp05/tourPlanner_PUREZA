@@ -1,6 +1,6 @@
 package businesslayer;
 
-import dataaccesslayer.tourModelDAO;
+import dataaccesslayer.daos.tourModelDAO;
 import models.tourModel;
 
 import java.util.List;
@@ -21,12 +21,19 @@ public class tourImplementation implements tourManager{
         if(caseSensitive){
             return items
                     .stream()
-                    .filter(x -> x.getTourName().contains(itemName))
+                    .filter(x -> (x.getTourName().contains(itemName) || x.getTourDescription().contains(itemName)
+                            || String.valueOf(x.getTourDistance()).contains(itemName)
+                            || x.getTourStart().contains(itemName)
+                            || x.getTourEnd().contains(itemName)))
                     .collect(Collectors.toList());
         }
         return items
                 .stream()
-                .filter(x -> x.getTourName().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT)))
+                .filter(x -> x.getTourName().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getTourDescription().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || String.valueOf(x.getTourDistance()).contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getTourStart().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getTourEnd().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT)))
                 .collect(Collectors.toList());
     }
 

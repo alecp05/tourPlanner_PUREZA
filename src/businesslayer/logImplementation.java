@@ -1,8 +1,7 @@
 package businesslayer;
 
-import dataaccesslayer.logModelDAO;
+import dataaccesslayer.daos.logModelDAO;
 import models.logModel;
-import models.tourModel;
 
 import java.util.List;
 import java.util.Locale;
@@ -21,12 +20,38 @@ public class logImplementation implements logManager{
         if(caseSensitive){
             return items
                     .stream()
-                    .filter(x -> x.getTourName().contains(itemName))
+                    .filter(x -> x.getTourName().contains(itemName)
+                            || x.getLogDate().contains(itemName)
+                            || x.getLogReport().contains(itemName)
+                            || x.getLogDistance().contains(itemName)
+                            || x.getLogTotalTime().contains(itemName)
+                            || String.valueOf(x.getLogRating()).contains(itemName)
+                            || x.getLogAverageSpeed().contains(itemName)
+                            || x.getLogWeatherCondition().contains(itemName)
+                            ||  String.valueOf(x.getLogBreaksTaken()).contains(itemName)
+                            || x.getLogStartingPoint().contains(itemName)
+                            || x.getLogEndPoint().contains(itemName)
+                    )
                     .collect(Collectors.toList());
         }
         return items
                 .stream()
-                .filter(x -> x.getTourName().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT)))
+                .filter(x -> x.getTourName().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getLogDate().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getLogReport().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getLogDistance().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getLogTotalTime().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || String.valueOf(x.getLogRating()).contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getLogAverageSpeed().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getLogWeatherCondition().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || String.valueOf(x.getLogBreaksTaken()).contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getLogStartingPoint().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT))
+                        || x.getLogEndPoint().toLowerCase().contains(itemName.toLowerCase(Locale.ROOT)))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void InsertLogItem(String name, String date, String report, String distance, String totalTime, int rating, String averageSpeed, String weather, int breaks, String start, String end) {
+        logModelDAO.InsertLogItems(name, date, report, distance, totalTime, rating, averageSpeed, weather, breaks, start, end);
     }
 }

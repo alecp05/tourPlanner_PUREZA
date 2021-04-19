@@ -26,7 +26,7 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </Label>
-                <TextField promptText="Log Name">
+                <TextField fx:id="logName" promptText="Log Name">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
                     </font>
@@ -39,7 +39,7 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </Label>
-                <TextField promptText="Date">
+                <TextField fx:id="logDate" promptText="Date">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
                     </font>
@@ -52,7 +52,7 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </Label>
-                <TextField promptText="Report">
+                <TextField fx:id="logReport" promptText="Report">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
                     </font>
@@ -65,7 +65,7 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </Label>
-                <TextField promptText="Distance">
+                <TextField fx:id="logDistance" promptText="Distance">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
                     </font>
@@ -78,7 +78,7 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </Label>
-                <TextField promptText="Total Time">
+                <TextField fx:id="logTotalTime" promptText="Total Time">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
                     </font>
@@ -91,7 +91,7 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </Label>
-                <TextField promptText="Rating">
+                <TextField fx:id="logRating" promptText="Rating">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
                     </font>
@@ -101,7 +101,7 @@
                 </TextField>
             </children>
         </VBox>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;" text="Add a Log" textAlignment="CENTER" textFill="WHITE">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9;" text="Add a Log" textAlignment="CENTER" textFill="WHITE">
             <GridPane.margin>
                 <Insets left="50.0" right="50.0" />
             </GridPane.margin>
@@ -113,7 +113,7 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </GridPane.margin>
             <children>
-                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #17252A;" text="ADD" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addLogButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #17252A;" text="ADD" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" left="50.0" top="10.0" />
                     </HBox.margin>
@@ -132,7 +132,7 @@
                   <Font name="Century Gothic" size="14.0" />
               </font>
           </Label>
-          <TextField promptText="Average Speed">
+          <TextField fx:id="logAverageSpeed" promptText="Average Speed">
               <font>
                   <Font name="Century Gothic" size="12.0" />
               </font>
@@ -145,7 +145,7 @@
                   <Font name="Century Gothic" size="14.0" />
               </font>
           </Label>
-          <TextField promptText="Weather Condition">
+          <TextField fx:id="logWeather" promptText="Weather Condition">
               <font>
                   <Font name="Century Gothic" size="12.0" />
               </font>
@@ -158,7 +158,7 @@
                   <Font name="Century Gothic" size="14.0" />
               </font>
           </Label>
-          <TextField promptText="Breaks Taken">
+          <TextField fx:id="logBreaks" promptText="Breaks Taken">
               <font>
                   <Font name="Century Gothic" size="12.0" />
               </font>
@@ -171,7 +171,7 @@
                   <Font name="Century Gothic" size="14.0" />
               </font>
           </Label>
-          <TextField promptText="Start Point:">
+          <TextField fx:id="logStart" promptText="Start Point:">
               <font>
                   <Font name="Century Gothic" size="12.0" />
               </font>
@@ -184,7 +184,7 @@
                   <Font name="Century Gothic" size="14.0" />
               </font>
           </Label>
-          <TextField promptText="End Point:">
+          <TextField fx:id="logEnd" promptText="End Point:">
               <font>
                   <Font name="Century Gothic" size="12.0" />
               </font>
