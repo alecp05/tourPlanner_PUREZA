@@ -48,7 +48,7 @@ public class tourViewController implements Initializable {
     private businesslayer.tourManager tourManager;
 
     //select current
-    private tourModel currentItem;
+    private tourModel currentItem = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -57,6 +57,8 @@ public class tourViewController implements Initializable {
         //tour TableView
         setUpTourTable();
         formatTourTableColumns();
+
+        SetCurrentTourItem();
 
     }
 
@@ -126,5 +128,17 @@ public class tourViewController implements Initializable {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void deleteButton(ActionEvent actionEvent) {
+        if(currentItem != null) {
+            tourManager.DeleteTourItem(currentItem.tourName,currentItem.tourDescription);
+
+            //update table
+            tableTourItems.clear();
+            List<tourModel> TourItems = tourManager.GetTourItems();
+            tableTourItems.addAll(TourItems);
+        }
+        currentItem = null;
     }
 }

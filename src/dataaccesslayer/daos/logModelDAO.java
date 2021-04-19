@@ -20,4 +20,7 @@ public class logModelDAO {
     {
         dataAccess.InsertLogItems(name,date,report,distance,totalTime,rating,averageSpeed,weather,breaks,start,end);
     }
+    public void DeleteLogItem(String date, String report) {
+        dataAccess.DeleteLogItem(date, report);
+    }
 };

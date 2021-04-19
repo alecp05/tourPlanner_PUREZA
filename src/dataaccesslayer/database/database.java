@@ -1,5 +1,6 @@
 package dataaccesslayer.database;
 
+import dataaccesslayer.database.methods.deleteMethods;
 import dataaccesslayer.database.methods.getMethods;
 import dataaccesslayer.database.methods.insertMethods;
 import models.logModel;
@@ -19,6 +20,7 @@ public class database implements dataAccess {
 
     getMethods getMethod = new getMethods();
     insertMethods insertMethods = new insertMethods();
+    deleteMethods deleteMethods = new deleteMethods();
 
     public database(){
         //get info from config file
@@ -46,14 +48,22 @@ public class database implements dataAccess {
 
     @Override
     public void InsertTourItems(String name, String description, int distance, String start, String end) {
-        System.out.println(name + description + distance + start + end);
         insertMethods.insertTourMethod(url,user,password,name,description,distance,start,end);
     }
 
     @Override
     public void InsertLogItems(String name, String date, String report, String distance, String totalTime, int rating,
                                String averageSpeed, String weather, int breaks, String start, String end) {
-        System.out.println(name + date + report + distance + totalTime);
         insertMethods.insertLogMethod(url,user,password,name,date,report,distance,totalTime,rating,averageSpeed,weather,breaks,start,end);
+    }
+
+    @Override
+    public void DeleteTourItem(String name, String description) {
+        deleteMethods.deleteTourMethod(url, user, password, name, description);
+    }
+
+    @Override
+    public void DeleteLogItem(String date, String report) {
+        deleteMethods.deleteLogMethod(url, user, password, date, report);
     }
 }

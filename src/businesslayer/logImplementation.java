@@ -54,4 +54,9 @@ public class logImplementation implements logManager{
     public void InsertLogItem(String name, String date, String report, String distance, String totalTime, int rating, String averageSpeed, String weather, int breaks, String start, String end) {
         logModelDAO.InsertLogItems(name, date, report, distance, totalTime, rating, averageSpeed, weather, breaks, start, end);
     }
+
+    @Override
+    public void DeleteLogItem(String date, String report) {
+        logModelDAO.DeleteLogItem(date, report);
+    }
 }

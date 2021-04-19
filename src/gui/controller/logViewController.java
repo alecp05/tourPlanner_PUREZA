@@ -57,7 +57,7 @@ public class logViewController implements Initializable {
     private ObservableList<logModel> tableLogItems;
 
 
-    private tourModel currentItem;
+    private logModel currentItem;
 
     //businessLayer communication
     private businesslayer.logManager logManager;
@@ -69,6 +69,8 @@ public class logViewController implements Initializable {
         //log TableView
         setUpLogTable();
         formatLogTableColumns();
+
+        SetCurrentLogItem();
     }
 
     private void setUpLogTable(){
@@ -134,4 +136,24 @@ public class logViewController implements Initializable {
         }
     }
 
+    private void SetCurrentLogItem(){
+        tableLogView.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if((newValue != null) && (oldValue != newValue)){
+                currentItem = newValue;
+                System.out.println(currentItem.tourName);
+            }
+        }));
+    }
+
+    public void deleteLogButton(ActionEvent actionEvent) {
+        if(currentItem != null) {
+            logManager.DeleteLogItem(currentItem.logDate, currentItem.logReport);
+
+            //update table
+            tableLogItems.clear();
+            List<logModel> LogItems = logManager.GetLogItems();
+            tableLogItems.addAll(LogItems);
+        }
+        currentItem = null;
+    }
 }

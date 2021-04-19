@@ -42,5 +42,10 @@ public class tourImplementation implements tourManager{
         tourModelDAO.InsertTourItems(name, description, distance, start, end);
     }
 
+    @Override
+    public void DeleteTourItem(String name, String description) {
+        tourModelDAO.DeleteTourItems(name, description);
+    }
+
 
 }

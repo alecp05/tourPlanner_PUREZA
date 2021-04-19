@@ -19,4 +19,8 @@ public class tourModelDAO {
     public void InsertTourItems(String name, String description, int distance, String start, String end){
         dataAccess.InsertTourItems(name, description, distance, start, end);
     }
+
+    public void DeleteTourItems(String name, String description){
+        dataAccess.DeleteTourItem(name, description);
+    };
 }
