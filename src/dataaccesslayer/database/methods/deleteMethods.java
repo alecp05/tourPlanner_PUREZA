@@ -9,7 +9,7 @@ public class deleteMethods {
 
     public void deleteTourMethod(String url, String user, String password, String name, String description){
 
-        //delete in database
+        //delete tour in database
         try(Connection connection = DriverManager.getConnection(url,user,password);
             PreparedStatement statement = connection.prepareStatement("DELETE FROM touritems WHERE tour_name = ? AND tour_description = ?;")
         ){
@@ -20,6 +20,17 @@ public class deleteMethods {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+
+        //delete belonging logs in database too
+        try(Connection connection = DriverManager.getConnection(url,user,password);
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM logitems WHERE log_name = ?;")
+        ){
+            statement.setString(1, name);
+            statement.execute();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     public void deleteLogMethod(String url, String user, String password, String date, String report){
