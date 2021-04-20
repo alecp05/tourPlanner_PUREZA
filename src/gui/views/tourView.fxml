@@ -70,7 +70,7 @@
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
                         </Pane>
-                        <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="95.0" style="-fx-background-color: #DEF2F1; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 5, 0, 0, 0);" text="[]" HBox.hgrow="ALWAYS">
+                        <Button mnemonicParsing="false" onAction="#editButton" prefHeight="54.0" prefWidth="95.0" style="-fx-background-color: #DEF2F1; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 5, 0, 0, 0);" text="[]" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="14.0" />
                            </font>

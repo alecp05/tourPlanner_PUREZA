@@ -66,4 +66,9 @@ public class database implements dataAccess {
     public void DeleteLogItem(String date, String report) {
         deleteMethods.deleteLogMethod(url, user, password, date, report);
     }
+
+    @Override
+    public List<String> GetTourNames() {
+        return getMethod.getTourName(url,user,password);
+    }
 }

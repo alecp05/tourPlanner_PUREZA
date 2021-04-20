@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="511.0" style="-fx-background-color: #17252A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.modifyTourController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1200.0" minWidth="10.0" prefWidth="452.6" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="0.0" prefWidth="62.39999999999998" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="47.399998092651366" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="1100.0" minHeight="10.0" prefHeight="277.4" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="45.39999999999998" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 25px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+            </GridPane.margin>
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Tour Name:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </Label>
+            <ChoiceBox fx:id="tourChoiceBox" prefHeight="26.0" prefWidth="1400.0" style="-fx-background-color: #DEF2F1;" VBox.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ChoiceBox>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Description:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tourDescription" promptText="Description">
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="136.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Distance (in km):" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tourDistance" promptText="Distance">
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Start Point:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tourStart" promptText="Start Point">
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="End Point:" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tourEnd" promptText="End Point">
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+            </children>
+        </VBox>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9;" text="Edit a Tour" textAlignment="CENTER" textFill="WHITE">
+            <GridPane.margin>
+                <Insets left="50.0" right="50.0" />
+            </GridPane.margin>
+            <font>
+                <Font name="Forte" size="20.0" />
+            </font></Label>
+        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #2C4C4B; -fx-background-radius: 25px;" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </GridPane.margin>
+            <children>
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #17252A;" text="Edit" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="50.0" top="10.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</GridPane>

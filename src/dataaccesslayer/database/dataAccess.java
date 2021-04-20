@@ -13,4 +13,5 @@ public interface dataAccess {
                                int rating, String averageSpeed, String weather, int breaks, String start, String end);
     public void DeleteTourItem(String name, String description);
     public void DeleteLogItem(String date, String report);
+    public List<String> GetTourNames();
 }

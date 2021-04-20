@@ -10,4 +10,5 @@ public interface tourManager {
     public List<tourModel> SearchTourItems(String itemName, boolean caseSensitive);
     public void InsertTourItem(String name, String description, int distance, String start, String end);
     public void DeleteTourItem(String name, String description);
+    public List<String> GetTourNames();
 }

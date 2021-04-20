@@ -73,5 +73,28 @@ public class getMethods {
 
     }
 
+    public List<String> getTourName(String url, String user, String password){
+
+        List<String> tourNames = new ArrayList<String>();
+
+        ResultSet myRs = null;
+        try(Connection connection = DriverManager.getConnection(url, user,password);
+            PreparedStatement statement = connection.prepareStatement("SELECT tour_name FROM touritems")
+        ){
+            myRs = statement.executeQuery();
+
+            while(myRs.next()) {
+
+                String tourName = myRs.getString(1);
+                tourNames.add(tourName);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return tourNames;
+
+    }
+
 
 }

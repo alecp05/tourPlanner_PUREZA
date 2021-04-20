@@ -23,4 +23,7 @@ public class tourModelDAO {
     public void DeleteTourItems(String name, String description){
         dataAccess.DeleteTourItem(name, description);
     };
+    public List<String> GetTourNames(){
+        return dataAccess.GetTourNames();
+    };
 }

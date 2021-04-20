@@ -141,4 +141,18 @@ public class tourViewController implements Initializable {
         }
         currentItem = null;
     }
+
+    public void editButton(ActionEvent actionEvent) {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/modifyTourView.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Edit Tours");
+            stage.setScene(new Scene(root, 700, 450));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

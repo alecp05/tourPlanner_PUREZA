@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="512.0" style="-fx-background-color: #17252A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.addLogController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="512.0" style="-fx-background-color: #17252A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.modifyLogController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="291.8" />
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="0.0" prefWidth="223.40000000000003" />
@@ -26,7 +26,7 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </Label>
-            <ChoiceBox fx:id="tourChoiceBox" prefHeight="26.0" prefWidth="500.0" style="-fx-background-color: #DEF2F1;" VBox.vgrow="ALWAYS" />
+                <ChoiceBox fx:id="logChoiceBox" prefHeight="26.0" prefWidth="500.0" style="-fx-background-color: #DEF2F1;" VBox.vgrow="ALWAYS" />
                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="89.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Date:" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Century Gothic" size="14.0" />
@@ -94,7 +94,7 @@
                 </TextField>
             </children>
         </VBox>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9;" text="Add a Log" textAlignment="CENTER" textFill="WHITE">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9;" text="Edit Logs" textAlignment="CENTER" textFill="WHITE">
             <GridPane.margin>
                 <Insets left="50.0" right="50.0" />
             </GridPane.margin>
@@ -106,7 +106,7 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </GridPane.margin>
             <children>
-                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addLogButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #17252A;" text="ADD" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editLogButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #17252A;" text="Edit" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" left="50.0" top="10.0" />
                     </HBox.margin>
@@ -116,76 +116,76 @@
                 </Button>
             </children>
         </HBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 25px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets bottom="20.0" right="20.0" top="10.0" />
-         </GridPane.margin><children>
-          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="137.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Average Speed:" textAlignment="CENTER" textFill="WHITE">
-              <font>
-                  <Font name="Century Gothic" size="14.0" />
-              </font>
-          </Label>
-          <TextField fx:id="logAverageSpeed" promptText="Average Speed">
-              <font>
-                  <Font name="Century Gothic" size="12.0" />
-              </font>
-              <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" />
-              </VBox.margin>
-          </TextField>
-          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="155.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Weather Condition:" textAlignment="CENTER" textFill="WHITE">
-              <font>
-                  <Font name="Century Gothic" size="14.0" />
-              </font>
-          </Label>
-          <TextField fx:id="logWeather" promptText="Weather Condition">
-              <font>
-                  <Font name="Century Gothic" size="12.0" />
-              </font>
-              <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" />
-              </VBox.margin>
-          </TextField>
-          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Breaks Taken:" textAlignment="CENTER" textFill="WHITE">
-              <font>
-                  <Font name="Century Gothic" size="14.0" />
-              </font>
-          </Label>
-          <TextField fx:id="logBreaks" promptText="Breaks Taken">
-              <font>
-                  <Font name="Century Gothic" size="12.0" />
-              </font>
-              <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" />
-              </VBox.margin>
-          </TextField>
-          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Start Point:" textAlignment="CENTER" textFill="WHITE">
-              <font>
-                  <Font name="Century Gothic" size="14.0" />
-              </font>
-          </Label>
-          <TextField fx:id="logStart" promptText="Start Point:">
-              <font>
-                  <Font name="Century Gothic" size="12.0" />
-              </font>
-              <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" />
-              </VBox.margin>
-          </TextField>
-          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="End Point:" textAlignment="CENTER" textFill="WHITE">
-              <font>
-                  <Font name="Century Gothic" size="14.0" />
-              </font>
-          </Label>
-          <TextField fx:id="logEnd" promptText="End Point:">
-              <font>
-                  <Font name="Century Gothic" size="12.0" />
-              </font>
-              <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" />
-              </VBox.margin>
-          </TextField>
-      </children>
-      </VBox>
+        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 25px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets bottom="20.0" right="20.0" top="10.0" />
+            </GridPane.margin><children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="137.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Average Speed:" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+            <TextField fx:id="logAverageSpeed" promptText="Average Speed">
+                <font>
+                    <Font name="Century Gothic" size="12.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="155.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Weather Condition:" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+            <TextField fx:id="logWeather" promptText="Weather Condition">
+                <font>
+                    <Font name="Century Gothic" size="12.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="117.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Breaks Taken:" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+            <TextField fx:id="logBreaks" promptText="Breaks Taken">
+                <font>
+                    <Font name="Century Gothic" size="12.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Start Point:" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+            <TextField fx:id="logStart" promptText="Start Point:">
+                <font>
+                    <Font name="Century Gothic" size="12.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                </VBox.margin>
+            </TextField>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="End Point:" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Century Gothic" size="14.0" />
+                </font>
+            </Label>
+            <TextField fx:id="logEnd" promptText="End Point:">
+                <font>
+                    <Font name="Century Gothic" size="12.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                </VBox.margin>
+            </TextField>
+        </children>
+        </VBox>
     </children>
 </GridPane>

@@ -23,12 +23,17 @@ public class addTourController {
         tourManager = tourManagerFactory.GetTourManager();
 
         String tempName = tourName.textProperty().getValue();
+        System.out.println(tempName);
         String tempDescription = tourDescription.textProperty().getValue();
-        Integer tempDistance = Integer.parseInt(tourDistance.textProperty().getValue());
+        Integer tempDistance = 0;
+        if(tempName != "") {
+            tempDistance = Integer.parseInt(tourDistance.textProperty().getValue());
+        }
         String tempStart = tourStart.textProperty().getValue();
         String tempEnd = tourEnd.textProperty().getValue();
 
         //insert to database
+        if(tempName != "")
         tourManager.InsertTourItem(tempName,tempDescription,tempDistance,tempStart,tempEnd);
 
         clearFields();

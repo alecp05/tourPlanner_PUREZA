@@ -47,5 +47,10 @@ public class tourImplementation implements tourManager{
         tourModelDAO.DeleteTourItems(name, description);
     }
 
+    @Override
+    public List<String> GetTourNames() {
+         return tourModelDAO.GetTourNames();
+    }
+
 
 }
