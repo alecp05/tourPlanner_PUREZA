@@ -16,4 +16,6 @@ public interface dataAccess {
     public List<String> GetTourNames();
     public List<String> GetLogNames();
     public void UpdateTourItem(String chosenTourName, String description, int distance, String start, String end);
+    public void UpdateLogItem(String indexString,String date, String report, String distance,
+                              String totalTime, int rating, String averageSpeed, String weather, int breaks, String start, String end);
 }

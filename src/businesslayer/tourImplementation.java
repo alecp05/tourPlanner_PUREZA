@@ -1,8 +1,10 @@
 package businesslayer;
 
+import businesslayer.mapQuestApi.apiHandler;
 import dataaccesslayer.daos.tourModelDAO;
 import models.tourModel;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 public class tourImplementation implements tourManager{
 
     tourModelDAO tourModelDAO = new tourModelDAO();
+    apiHandler apiHandler = new apiHandler();
 
 
     public List<tourModel> GetTourItems(){return tourModelDAO.GetTourItems(); }
@@ -55,6 +58,11 @@ public class tourImplementation implements tourManager{
     @Override
     public void UpdateTourItem(String chosenTourName, String description, int distance, String start, String end) {
         tourModelDAO.UpdateTourItem(chosenTourName,description,distance,start,end);
+    }
+
+    @Override
+    public void GetImageRequest(String tourName, String start, String end) throws IOException {
+        apiHandler.GetRequestMethod(tourName,start,end);
     }
 
 

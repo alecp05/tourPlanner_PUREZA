@@ -109,7 +109,7 @@ public class getMethods {
 
                 String logName = myRs.getString(1);
                 String logDate = myRs.getString(2);
-                String tempString = logName + " " + logDate;
+                String tempString = logName + "|" + logDate;
 
                 logNames.add(tempString);
             }

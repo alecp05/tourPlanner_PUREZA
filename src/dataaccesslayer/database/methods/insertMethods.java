@@ -13,15 +13,13 @@ public class insertMethods {
         int count = 1;
         ResultSet myRs = null;
         try(Connection connection = DriverManager.getConnection(url, user,password);
-            PreparedStatement statement = connection.prepareStatement("SELECT tour_id FROM touritems")
+            PreparedStatement statement = connection.prepareStatement("SELECT MAX(tour_id) FROM touritems")
         ){
             myRs = statement.executeQuery();
 
             while(myRs.next()) {
                 Integer tempTourId = myRs.getInt(1);
-                if(tempTourId==count){
-                    count += 1;
-                }
+                count = tempTourId + 1;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -53,15 +51,13 @@ public class insertMethods {
         int count = 1;
         ResultSet myRs = null;
         try(Connection connection = DriverManager.getConnection(url, user,password);
-            PreparedStatement statement = connection.prepareStatement("SELECT log_id FROM logitems")
+            PreparedStatement statement = connection.prepareStatement("SELECT MAX(log_id) FROM logitems")
         ){
             myRs = statement.executeQuery();
 
             while(myRs.next()) {
-                Integer tempTourId = myRs.getInt(1);
-                if(tempTourId==count){
-                    count += 1;
-                }
+                Integer tempLogId = myRs.getInt(1);
+                count = tempLogId + 1;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

@@ -33,8 +33,11 @@ public class addTourController {
         String tempEnd = tourEnd.textProperty().getValue();
 
         //insert to database
-        if(tempName != "")
-        tourManager.InsertTourItem(tempName,tempDescription,tempDistance,tempStart,tempEnd);
+        if(tempName != ""){
+
+            tourManager.InsertTourItem(tempName,tempDescription,tempDistance,tempStart,tempEnd);
+            addMapImage(tempName,tempStart,tempEnd);
+        }
 
         clearFields();
 
@@ -49,5 +52,9 @@ public class addTourController {
         tourDistance.clear();
         tourStart.clear();
         tourEnd.clear();
+    }
+
+    public void addMapImage(String tourName, String start, String end) throws IOException {
+        tourManager.GetImageRequest(tourName,start,end);
     }
 }

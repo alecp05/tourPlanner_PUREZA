@@ -24,4 +24,8 @@ public class logModelDAO {
         dataAccess.DeleteLogItem(date, report);
     }
     public List<String> GetLogNames(){return dataAccess.GetLogNames();}
+    public void UpdateLogItem(String indexString, String date, String report, String distance,
+                              String totalTime, int rating, String averageSpeed, String weather, int breaks, String start, String end){
+        dataAccess.UpdateLogItem(indexString, date,report,distance,totalTime,rating,averageSpeed,weather,breaks,start,end);
+    };
 };

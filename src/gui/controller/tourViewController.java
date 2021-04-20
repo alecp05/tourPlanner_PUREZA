@@ -14,10 +14,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import models.logModel;
 import models.tourModel;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -50,6 +52,11 @@ public class tourViewController implements Initializable {
     //select current
     private tourModel currentItem = null;
 
+
+    @FXML
+    private ImageView mapImageView;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tourManager = tourManagerFactory.GetTourManager();
@@ -59,6 +66,9 @@ public class tourViewController implements Initializable {
         formatTourTableColumns();
 
         SetCurrentTourItem();
+
+        Image defaultImage = new Image(getClass().getResourceAsStream("/tourImages/mapLogo01.png"));
+        mapImageView.setImage(defaultImage);
 
     }
 
@@ -88,7 +98,8 @@ public class tourViewController implements Initializable {
         tableTourView.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if((newValue != null) && (oldValue != newValue)){
                 currentItem = newValue;
-                System.out.println(currentItem.tourName);
+                System.out.println(currentItem.tourName + "--------");
+                setTourImage(currentItem.tourName);
             }
         }));
     }
@@ -154,5 +165,20 @@ public class tourViewController implements Initializable {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setTourImage(String tourName){
+        String imageName = tourName.replace(" ", "") + ".jpg";
+        String pathName = "/tourImages/" + imageName;
+
+        File tmpDir = new File("./src"+pathName);
+        boolean exists = tmpDir.exists();
+        Image placeImage;
+        if(exists){
+            placeImage = new Image(pathName);
+        }else {
+            placeImage = new Image(getClass().getResourceAsStream("/tourImages/mapLogo01.png"));
+        }
+        mapImageView.setImage(placeImage);
     }
 }

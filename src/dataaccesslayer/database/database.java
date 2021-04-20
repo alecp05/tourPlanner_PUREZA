@@ -83,4 +83,10 @@ public class database implements dataAccess {
     public void UpdateTourItem(String chosenTourName, String description, int distance, String start, String end) {
         updateMethods.UpdateTourItem(url,user,password, chosenTourName, description, distance,start,end);
     }
+
+    @Override
+    public void UpdateLogItem(String indexString, String date, String report, String distance,
+                              String totalTime, int rating, String averageSpeed, String weather, int breaks, String start, String end) {
+        updateMethods.UpdateLogItem(url, user, password,indexString,date,report,distance,totalTime,rating,averageSpeed,weather,breaks,start,end);
+    }
 }
