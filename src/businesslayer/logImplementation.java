@@ -59,4 +59,9 @@ public class logImplementation implements logManager{
     public void DeleteLogItem(String date, String report) {
         logModelDAO.DeleteLogItem(date, report);
     }
+
+    @Override
+    public List<String> GetLogNames() {
+        return logModelDAO.GetLogNames();
+    }
 }

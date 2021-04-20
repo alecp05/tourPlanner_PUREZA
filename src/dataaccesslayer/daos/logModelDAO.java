@@ -23,4 +23,5 @@ public class logModelDAO {
     public void DeleteLogItem(String date, String report) {
         dataAccess.DeleteLogItem(date, report);
     }
+    public List<String> GetLogNames(){return dataAccess.GetLogNames();}
 };

@@ -52,5 +52,10 @@ public class tourImplementation implements tourManager{
          return tourModelDAO.GetTourNames();
     }
 
+    @Override
+    public void UpdateTourItem(String chosenTourName, String description, int distance, String start, String end) {
+        tourModelDAO.UpdateTourItem(chosenTourName,description,distance,start,end);
+    }
+
 
 }

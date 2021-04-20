@@ -156,4 +156,18 @@ public class logViewController implements Initializable {
         }
         currentItem = null;
     }
+
+    public void editButton(ActionEvent actionEvent) {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/modifyLogView.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Edit Logs");
+            stage.setScene(new Scene(root, 700, 450));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

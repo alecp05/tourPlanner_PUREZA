@@ -96,5 +96,30 @@ public class getMethods {
 
     }
 
+    public List<String> getLogNames(String url, String user, String password){
+
+        List<String> logNames = new ArrayList<>();
+        ResultSet myRs = null;
+        try(Connection connection = DriverManager.getConnection(url, user,password);
+            PreparedStatement statement = connection.prepareStatement("SELECT log_name, log_date FROM logitems")
+        ){
+            myRs = statement.executeQuery();
+
+            while(myRs.next()) {
+
+                String logName = myRs.getString(1);
+                String logDate = myRs.getString(2);
+                String tempString = logName + " " + logDate;
+
+                logNames.add(tempString);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return logNames;
+
+    };
+
 
 }

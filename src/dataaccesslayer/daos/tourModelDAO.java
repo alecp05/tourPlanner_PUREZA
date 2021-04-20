@@ -26,4 +26,8 @@ public class tourModelDAO {
     public List<String> GetTourNames(){
         return dataAccess.GetTourNames();
     };
+
+    public void UpdateTourItem(String chosenTourName, String description, int distance, String start, String end){
+        dataAccess.UpdateTourItem(chosenTourName,description,distance,start,end);
+    };
 }

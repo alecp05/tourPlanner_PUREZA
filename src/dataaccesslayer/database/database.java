@@ -3,6 +3,7 @@ package dataaccesslayer.database;
 import dataaccesslayer.database.methods.deleteMethods;
 import dataaccesslayer.database.methods.getMethods;
 import dataaccesslayer.database.methods.insertMethods;
+import dataaccesslayer.database.methods.updateMethods;
 import models.logModel;
 import models.tourModel;
 
@@ -21,6 +22,7 @@ public class database implements dataAccess {
     getMethods getMethod = new getMethods();
     insertMethods insertMethods = new insertMethods();
     deleteMethods deleteMethods = new deleteMethods();
+    updateMethods updateMethods= new updateMethods();
 
     public database(){
         //get info from config file
@@ -70,5 +72,15 @@ public class database implements dataAccess {
     @Override
     public List<String> GetTourNames() {
         return getMethod.getTourName(url,user,password);
+    }
+
+    @Override
+    public List<String> GetLogNames() {
+        return getMethod.getLogNames(url, user, password);
+    }
+
+    @Override
+    public void UpdateTourItem(String chosenTourName, String description, int distance, String start, String end) {
+        updateMethods.UpdateTourItem(url,user,password, chosenTourName, description, distance,start,end);
     }
 }
