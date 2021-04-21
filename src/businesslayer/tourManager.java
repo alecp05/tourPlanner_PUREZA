@@ -1,5 +1,6 @@
 package businesslayer;
 
+import javafx.scene.image.Image;
 import models.tourModel;
 
 import java.io.IOException;
@@ -14,4 +15,6 @@ public interface tourManager {
     public List<String> GetTourNames();
     public void UpdateTourItem(String chosenTourName, String description, int distance, String start, String end);
     public void GetImageRequest(String tourName, String start, String end) throws IOException;
+    public Image GetTourImage(String tourName, String start,String end) throws IOException;
+    public void DeleteImage(String tourName);
 }

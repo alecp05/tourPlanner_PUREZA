@@ -4,6 +4,7 @@ import businesslayer.tourManagerFactory;
 import gui.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,11 +17,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lombok.SneakyThrows;
 import models.tourModel;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -67,7 +74,8 @@ public class tourViewController implements Initializable {
 
         SetCurrentTourItem();
 
-        Image defaultImage = new Image(getClass().getResourceAsStream("/tourImages/mapLogo01.png"));
+
+        Image defaultImage = new Image(getClass().getResource("/tourImages/mapLogo01.png").toExternalForm());
         mapImageView.setImage(defaultImage);
 
     }
@@ -99,7 +107,11 @@ public class tourViewController implements Initializable {
             if((newValue != null) && (oldValue != newValue)){
                 currentItem = newValue;
                 System.out.println(currentItem.tourName + "--------");
-                setTourImage(currentItem.tourName);
+                try {
+                    setTourImage(currentItem.tourName);
+                } catch (IOException | URISyntaxException e) {
+                    e.printStackTrace();
+                }
             }
         }));
     }
@@ -144,6 +156,7 @@ public class tourViewController implements Initializable {
     public void deleteButton(ActionEvent actionEvent) {
         if(currentItem != null) {
             tourManager.DeleteTourItem(currentItem.tourName,currentItem.tourDescription);
+            tourManager.DeleteImage(currentItem.tourName);
 
             //update table
             tableTourItems.clear();
@@ -167,18 +180,38 @@ public class tourViewController implements Initializable {
         }
     }
 
-    public void setTourImage(String tourName){
+    public void setTourImage(String tourName) throws IOException, URISyntaxException {
         String imageName = tourName.replace(" ", "") + ".jpg";
         String pathName = "/tourImages/" + imageName;
 
         File tmpDir = new File("./src"+pathName);
         boolean exists = tmpDir.exists();
-        Image placeImage;
         if(exists){
-            placeImage = new Image(pathName);
+            Image placeImage;
+
+            if(getClass().getResource(pathName) == null){
+                //System.out.println(currentItem.tourName + currentItem.tourStart + currentItem.tourEnd);
+                Image tourImage = tourManager.GetTourImage(currentItem.tourName , currentItem.tourStart , currentItem.tourEnd);
+                mapImageView.setImage(tourImage);
+            }else {
+                //ImageIcon trying = new ImageIcon(getClass().getResource(pathName).toURI().toString());
+                placeImage = new Image(getClass().getResource(pathName).toURI().toString());
+                mapImageView.setImage(placeImage);
+
+                System.out.println(mapImageView.cacheProperty());
+            }
         }else {
-            placeImage = new Image(getClass().getResourceAsStream("/tourImages/mapLogo01.png"));
+            Image placeImage;
+            placeImage = new Image(getClass().getResource("/tourImages/mapLogo01.png").toExternalForm());
+            mapImageView.setImage(placeImage);
         }
-        mapImageView.setImage(placeImage);
+    }
+
+    public void refreshButton(ActionEvent actionEvent) {
+        tableTourItems.clear();
+
+        List<tourModel> TourItems = tourManager.GetTourItems();
+        tableTourItems.addAll(TourItems);
+
     }
 }

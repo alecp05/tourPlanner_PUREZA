@@ -62,6 +62,10 @@ public class modifyTourController implements Initializable {
             //update in database
             tourManager.UpdateTourItem(chosenTour,tempDescription,tempDistance,tempStart,tempEnd);
 
+            //delete and create nur jpg-image
+            tourManager.DeleteImage(chosenTour);
+            tourManager.GetImageRequest(chosenTour,tempStart,tempEnd);
+
             clearFields();
 
             //update tourView

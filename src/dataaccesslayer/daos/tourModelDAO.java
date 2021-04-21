@@ -2,6 +2,7 @@ package dataaccesslayer.daos;
 
 import dataaccesslayer.database.dataAccess;
 import dataaccesslayer.database.database;
+import dataaccesslayer.file.filesystem;
 import models.tourModel;
 
 import java.util.List;
@@ -9,9 +10,11 @@ import java.util.List;
 public class tourModelDAO {
 
     private dataaccesslayer.database.dataAccess dataAccess;
+    private dataaccesslayer.file.fileAccess fileAccess;
 
     public tourModelDAO(){
         dataAccess = new database();
+        fileAccess = new filesystem();
     }
 
     public List<tourModel> GetTourItems(){return dataAccess.GetTourItems();}
@@ -30,4 +33,8 @@ public class tourModelDAO {
     public void UpdateTourItem(String chosenTourName, String description, int distance, String start, String end){
         dataAccess.UpdateTourItem(chosenTourName,description,distance,start,end);
     };
+
+    public void DeleteImage(String tourName){
+        fileAccess.DeleteImage(tourName);
+    }
 }

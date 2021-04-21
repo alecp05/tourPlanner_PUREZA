@@ -2,6 +2,7 @@ package businesslayer;
 
 import businesslayer.mapQuestApi.apiHandler;
 import dataaccesslayer.daos.tourModelDAO;
+import javafx.scene.image.Image;
 import models.tourModel;
 
 import java.io.IOException;
@@ -63,6 +64,16 @@ public class tourImplementation implements tourManager{
     @Override
     public void GetImageRequest(String tourName, String start, String end) throws IOException {
         apiHandler.GetRequestMethod(tourName,start,end);
+    }
+
+    @Override
+    public Image GetTourImage(String tourName, String start, String end) throws IOException {
+        return apiHandler.GetImageTour(tourName,start,end);
+    }
+
+    @Override
+    public void DeleteImage(String tourName) {
+        tourModelDAO.DeleteImage(tourName);
     }
 
 
