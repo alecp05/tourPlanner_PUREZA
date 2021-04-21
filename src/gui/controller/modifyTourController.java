@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import models.tourModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +22,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class modifyTourController implements Initializable {
+    private static final Logger logger = LogManager.getLogger(modifyTourController.class);
 
     private ObservableList<String> tourChoices;
 
@@ -44,6 +47,8 @@ public class modifyTourController implements Initializable {
 
         tourChoices.addAll(tourNames);
         tourChoiceBox.getItems().addAll(tourChoices);
+
+        logger.info("Initialized modifyTourView");
 
     }
 
@@ -71,6 +76,9 @@ public class modifyTourController implements Initializable {
             //update tourView
             Main m = new Main();
             m.changeScene("views/tourView.fxml");
+
+            logger.info("Edit-Button clicked");
+
         }
     }
 

@@ -1,6 +1,9 @@
 package dataaccesslayer.file;
 
 import dataaccesslayer.file.fileAccess;
+import gui.controller.addLogController;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -11,6 +14,8 @@ import java.net.URL;
 import java.nio.file.Files;
 
 public class filesystem implements fileAccess {
+
+    private static final Logger logger = LogManager.getLogger(filesystem.class);
 
     private String filePath;
 
@@ -30,6 +35,8 @@ public class filesystem implements fileAccess {
         String fileDirectory = filePath + tourName + ".jpg";
 
         ImageIO.write((RenderedImage) image, "jpg", new File(fileDirectory));
+
+        logger.info("TourImage hast been saved");
     }
 
     @Override
@@ -42,9 +49,9 @@ public class filesystem implements fileAccess {
         boolean exists = tmpDir.exists();
         if(exists){
             tmpDir.delete();
-            System.out.println("deleting file");
+            logger.info("Image has been deleted");
         }else {
-            System.out.println("no file found");
+            logger.warn("Image not found");
         }
     }
 }

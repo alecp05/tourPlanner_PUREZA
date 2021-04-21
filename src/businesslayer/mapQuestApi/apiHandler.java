@@ -1,9 +1,12 @@
 package businesslayer.mapQuestApi;
 
+import dataaccesslayer.database.methods.updateMethods;
 import dataaccesslayer.file.filesystem;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -11,6 +14,8 @@ import java.io.IOException;
 import java.net.URL;
 
 public class apiHandler {
+
+    private static final Logger logger = LogManager.getLogger(apiHandler.class);
 
     private static dataaccesslayer.file.fileAccess fileAccess;
 
@@ -39,6 +44,8 @@ public class apiHandler {
         String completeURL = urlString + start + end + size + keyString;
 
         fileAccess.SaveImageInFile(completeURL, tourName);
+
+        logger.info("GetRequest successful");
     }
 
     public Image GetImageTour(String tourName, String startPoint, String endPoint) throws IOException {
@@ -52,6 +59,8 @@ public class apiHandler {
 
         BufferedImage myImage = ImageIO.read(new URL(completeURL));
         Image image = SwingFXUtils.toFXImage(myImage, null);
+
+        logger.info("Getting Image from MapQuestApi successful");
 
         return image;
     }

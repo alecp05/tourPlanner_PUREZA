@@ -1,10 +1,14 @@
 package dataaccesslayer.database.methods;
 
 import models.tourModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 
 public class insertMethods {
+
+    private static final Logger logger = LogManager.getLogger(insertMethods.class);
 
     public void insertTourMethod(String url, String user, String password,
                                   String name, String description, int distance, String start, String end){
@@ -41,7 +45,7 @@ public class insertMethods {
             ex.printStackTrace();
         }
 
-        System.out.println(count);
+        logger.info("Tour has been inserted into Database");
     }
 
     public void insertLogMethod(String url, String user, String password,String name, String date, String report, String distance,
@@ -84,6 +88,7 @@ public class insertMethods {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        logger.info("Log has been inserted into Database");
 
     }
 }

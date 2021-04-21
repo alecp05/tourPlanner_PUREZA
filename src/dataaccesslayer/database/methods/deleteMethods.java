@@ -1,11 +1,17 @@
 package dataaccesslayer.database.methods;
 
+import dataaccesslayer.file.filesystem;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class deleteMethods {
+
+    private static final Logger logger = LogManager.getLogger(deleteMethods.class);
 
     public void deleteTourMethod(String url, String user, String password, String name, String description){
 
@@ -31,6 +37,8 @@ public class deleteMethods {
             ex.printStackTrace();
         }
 
+        logger.info("Tour and Logs has been deleted in Database");
+
     }
 
     public void deleteLogMethod(String url, String user, String password, String date, String report){
@@ -46,5 +54,7 @@ public class deleteMethods {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+
+        logger.info("Logs has been deleted in Database");
     };
 }

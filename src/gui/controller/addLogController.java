@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,6 +21,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class addLogController implements Initializable {
+
+    private static final Logger logger = LogManager.getLogger(addLogController.class);
 
     //public String logName;
     public TextField logDate;
@@ -70,6 +74,8 @@ public class addLogController implements Initializable {
             clearFields();
         }
 
+        logger.info("Add-Button clicked");
+
         //update tourView
         Main m = new Main();
         m.changeScene("views/logView.fxml");
@@ -100,5 +106,7 @@ public class addLogController implements Initializable {
         tourChoices.addAll(tourNames);
         tourChoiceBox.getItems().addAll(tourChoices);
         System.out.println(tourChoiceBox);
+
+        logger.info("Initialized addLogView");
     }
 }

@@ -5,10 +5,14 @@ import businesslayer.tourManagerFactory;
 import gui.Main;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class addTourController {
+
+    private static final Logger logger = LogManager.getLogger(addTourController.class);
 
     public TextField tourName;
     public TextField tourDescription;
@@ -23,7 +27,7 @@ public class addTourController {
         tourManager = tourManagerFactory.GetTourManager();
 
         String tempName = tourName.textProperty().getValue();
-        System.out.println(tempName);
+        //System.out.println(tempName);
         String tempDescription = tourDescription.textProperty().getValue();
         Integer tempDistance = 0;
         if(tempName != "") {
@@ -44,6 +48,8 @@ public class addTourController {
         //update tourView
         Main m = new Main();
         m.changeScene("views/tourView.fxml");
+
+        logger.info("Add-Button clicked");
     }
 
     public void clearFields(){

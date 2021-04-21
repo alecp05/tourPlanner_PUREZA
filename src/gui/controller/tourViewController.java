@@ -21,6 +21,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import models.tourModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -33,6 +35,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class tourViewController implements Initializable {
+
+    private static final Logger logger = LogManager.getLogger(tourViewController.class);
 
     public TextField searchingField;
 
@@ -78,6 +82,8 @@ public class tourViewController implements Initializable {
         Image defaultImage = new Image(getClass().getResource("/tourImages/mapLogo01.png").toExternalForm());
         mapImageView.setImage(defaultImage);
 
+        logger.info("Initialized TourView");
+
     }
 
     private void setUpTourTable(){
@@ -100,13 +106,17 @@ public class tourViewController implements Initializable {
 
         List<tourModel> tourItems = tourManager.SearchTourItems(searchingField.textProperty().getValue(), false);
         tableTourItems.addAll(tourItems);
+
+        logger.info("Search Function clicked");
     }
 
     private void SetCurrentTourItem(){
         tableTourView.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if((newValue != null) && (oldValue != newValue)){
                 currentItem = newValue;
-                System.out.println(currentItem.tourName + "--------");
+                //System.out.println(currentItem.tourName + "--------");
+
+                logger.info("Current Item is set");
                 try {
                     setTourImage(currentItem.tourName);
                 } catch (IOException | URISyntaxException e) {
@@ -136,6 +146,8 @@ public class tourViewController implements Initializable {
         List<tourModel> TourItems = tourManager.GetTourItems();
         tableTourItems.addAll(TourItems);
 
+        logger.info("Cleared everything");
+
     }
 
 
@@ -147,6 +159,8 @@ public class tourViewController implements Initializable {
             stage.setTitle("Adding Tours");
             stage.setScene(new Scene(root, 700, 450));
             stage.show();
+
+            logger.info("Add-Button clicked");
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -162,6 +176,9 @@ public class tourViewController implements Initializable {
             tableTourItems.clear();
             List<tourModel> TourItems = tourManager.GetTourItems();
             tableTourItems.addAll(TourItems);
+
+
+            logger.info("Delete-Button clicked");
         }
         currentItem = null;
     }
@@ -174,6 +191,8 @@ public class tourViewController implements Initializable {
             stage.setTitle("Edit Tours");
             stage.setScene(new Scene(root, 700, 450));
             stage.show();
+
+            logger.info("Edit-Button clicked");
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -198,12 +217,16 @@ public class tourViewController implements Initializable {
                 placeImage = new Image(getClass().getResource(pathName).toURI().toString());
                 mapImageView.setImage(placeImage);
 
-                System.out.println(mapImageView.cacheProperty());
+                //System.out.println(mapImageView.cacheProperty());
             }
+
+            logger.info("TourImage shown");
         }else {
             Image placeImage;
             placeImage = new Image(getClass().getResource("/tourImages/mapLogo01.png").toExternalForm());
             mapImageView.setImage(placeImage);
+
+            logger.warn("No TourImage found");
         }
     }
 

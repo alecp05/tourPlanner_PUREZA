@@ -2,12 +2,16 @@ package dataaccesslayer.database.methods;
 
 import models.logModel;
 import models.tourModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class getMethods {
+
+    private static final Logger logger = LogManager.getLogger(getMethods.class);
 
     public ArrayList<tourModel> getTourMethod(String url, String user, String password){
         ArrayList<tourModel> tours = new ArrayList<tourModel>();
@@ -29,11 +33,13 @@ public class getMethods {
 
                 tourModel tempTour = new tourModel(tourName,tourDescription,tourDistance,tourStart,tourEnd);
                 tours.add(tempTour);
-                System.out.println(tourName);
+                //System.out.println(tourName);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        logger.info("Getting Tours from Database");
+
         return tours;
     }
 
@@ -64,11 +70,12 @@ public class getMethods {
                 logModel tempLog = new logModel(logName,logDate,logReport,logDistance,logTotalTime,logRating,
                         logAverageSpeed,logWeather,logBreaks,logStart,logEnd);
                 logs.add(tempLog);
-                System.out.println(logName);
+                //System.out.println(logName);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        logger.info("Getting Logs from Database");
         return logs;
 
     }
@@ -91,6 +98,7 @@ public class getMethods {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        logger.info("Getting TourNames from Database");
 
         return tourNames;
 
@@ -116,6 +124,7 @@ public class getMethods {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        logger.info("Getting LogsNames from Database");
 
         return logNames;
 

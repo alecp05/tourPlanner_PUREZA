@@ -1,3 +1,43 @@
-2021-04-21 17:52:45.039 [main]  INFO  gui.controller.testingLog4  - this is an info
-2021-04-21 17:52:45.040 [main]  WARN  gui.controller.testingLog4  - this is an warning
-2021-04-21 17:52:45.040 [main]  WARN  gui.controller.testingLog4  - this is an warning
+
+2021-04-21 19:31:15.330 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-21 19:31:15.369 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-21 19:31:15.369 [JavaFX Application Thread]  INFO  gui.controller.homeViewController  - Initialized HomeView
+2021-04-21 19:31:15.866 [JavaFX Application Thread]  INFO  gui.Main  - First Scene has been created
+2021-04-21 19:31:17.883 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-21 19:31:17.898 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Initialized TourView
+2021-04-21 19:31:17.902 [JavaFX Application Thread]  INFO  gui.Main  - The Scene has been changed/updated
+2021-04-21 19:31:19.723 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-21 19:31:19.767 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-21 19:31:19.767 [JavaFX Application Thread]  INFO  gui.controller.homeViewController  - Initialized HomeView
+2021-04-21 19:31:19.770 [JavaFX Application Thread]  INFO  gui.Main  - The Scene has been changed/updated
+2021-04-21 19:31:21.098 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-21 19:31:21.110 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Initialized TourView
+2021-04-21 19:31:21.112 [JavaFX Application Thread]  INFO  gui.Main  - The Scene has been changed/updated
+2021-04-21 19:31:22.702 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Add-Button clicked
+2021-04-21 19:31:36.232 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.insertMethods  - Tour has been inserted into Database
+2021-04-21 19:31:39.498 [JavaFX Application Thread]  INFO  dataaccesslayer.file.filesystem  - TourImage hast been saved
+2021-04-21 19:31:39.499 [JavaFX Application Thread]  INFO  businesslayer.mapQuestApi.apiHandler  - GetRequest successful
+2021-04-21 19:31:39.571 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-21 19:31:39.577 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Initialized TourView
+2021-04-21 19:31:39.579 [JavaFX Application Thread]  INFO  gui.Main  - The Scene has been changed/updated
+2021-04-21 19:31:39.580 [JavaFX Application Thread]  INFO  gui.controller.addTourController  - Add-Button clicked
+2021-04-21 19:31:45.958 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-21 19:31:49.317 [JavaFX Application Thread]  INFO  businesslayer.mapQuestApi.apiHandler  - Getting Image from MapQuestApi successful
+2021-04-21 19:31:49.318 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - TourImage shown
+2021-04-21 19:31:50.483 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-21 19:31:50.518 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - TourImage shown
+2021-04-21 19:32:02.214 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-21 19:32:02.224 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - TourImage shown
+2021-04-21 19:32:02.956 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-21 19:32:02.965 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - TourImage shown
+2021-04-21 19:32:03.676 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-21 19:32:07.202 [JavaFX Application Thread]  INFO  businesslayer.mapQuestApi.apiHandler  - Getting Image from MapQuestApi successful
+2021-04-21 19:32:07.202 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - TourImage shown
+2021-04-21 19:32:08.867 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-21 19:32:08.877 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - TourImage shown
+2021-04-21 19:32:09.370 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-21 19:32:09.381 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - TourImage shown
+2021-04-21 19:32:10.626 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-21 19:32:10.665 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-21 19:32:10.665 [JavaFX Application Thread]  INFO  gui.controller.homeViewController  - Initialized HomeView
+2021-04-21 19:32:10.667 [JavaFX Application Thread]  INFO  gui.Main  - The Scene has been changed/updated

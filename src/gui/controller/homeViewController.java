@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import models.logModel;
 import models.tourModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +23,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class homeViewController implements Initializable {
+
+    private static final Logger logger = LogManager.getLogger(homeViewController.class);
 
     public TextField searchingField;
 
@@ -104,6 +108,8 @@ public class homeViewController implements Initializable {
 
         //search Function
 
+        logger.info("Initialized HomeView");
+
     }
 
 
@@ -172,6 +178,8 @@ public class homeViewController implements Initializable {
         tableTourItems.addAll(tourItems);
         List<logModel> logItems = logManager.SearchLogItems(searchingField.textProperty().getValue(), false);
         tableLogItems.addAll(logItems);
+
+        logger.info("Search Function clicked");
     }
 
     public void clearAction(ActionEvent actionEvent) {
@@ -185,5 +193,7 @@ public class homeViewController implements Initializable {
 
         List<logModel> LogItems = logManager.GetLogItems();
         tableLogItems.addAll(LogItems);
+
+        logger.info("Clear Function clicked");
     }
 }

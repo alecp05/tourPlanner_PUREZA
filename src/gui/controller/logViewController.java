@@ -17,6 +17,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.logModel;
 import models.tourModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +26,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class logViewController implements Initializable {
+
+    private static final Logger logger = LogManager.getLogger(logViewController.class);
 
     public TextField searchingField;
 
@@ -71,6 +75,8 @@ public class logViewController implements Initializable {
         formatLogTableColumns();
 
         SetCurrentLogItem();
+
+        logger.info("Initialized LogView");
     }
 
     private void setUpLogTable(){
@@ -99,6 +105,8 @@ public class logViewController implements Initializable {
 
         List<logModel> logItems = logManager.SearchLogItems(searchingField.textProperty().getValue(), false);
         tableLogItems.addAll(logItems);
+
+        logger.info("Search Function clicked");
     }
 
     public void clearAction(ActionEvent actionEvent) {
@@ -106,9 +114,10 @@ public class logViewController implements Initializable {
 
         searchingField.textProperty().setValue("");
 
-
         List<logModel> LogItems = logManager.GetLogItems();
         tableLogItems.addAll(LogItems);
+
+        logger.info("Items cleared");
     }
 
 
@@ -130,6 +139,8 @@ public class logViewController implements Initializable {
             stage.setTitle("Adding Logs");
             stage.setScene(new Scene(root, 850, 500));
             stage.show();
+
+            logger.info("Add-Button clicked");
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -141,6 +152,8 @@ public class logViewController implements Initializable {
             if((newValue != null) && (oldValue != newValue)){
                 currentItem = newValue;
                 System.out.println(currentItem.tourName);
+
+                logger.info("Current Item is set");
             }
         }));
     }
@@ -153,6 +166,8 @@ public class logViewController implements Initializable {
             tableLogItems.clear();
             List<logModel> LogItems = logManager.GetLogItems();
             tableLogItems.addAll(LogItems);
+
+            logger.info("Add-Button clicked");
         }
         currentItem = null;
     }
@@ -165,6 +180,8 @@ public class logViewController implements Initializable {
             stage.setTitle("Edit Logs");
             stage.setScene(new Scene(root, 700, 450));
             stage.show();
+
+            logger.info("Edit-Button clicked");
         }
         catch (IOException e) {
             e.printStackTrace();

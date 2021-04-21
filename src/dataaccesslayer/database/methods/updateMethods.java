@@ -1,5 +1,8 @@
 package dataaccesslayer.database.methods;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +10,8 @@ import java.sql.SQLException;
 import java.util.Locale;
 
 public class updateMethods {
+
+    private static final Logger logger = LogManager.getLogger(updateMethods.class);
 
     public void UpdateTourItem(String url, String user, String password,
                                String chosenTourName, String description, int distance, String start, String end){
@@ -28,6 +33,7 @@ public class updateMethods {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        logger.info("Tour has been updated in Database");
 
     }
 
@@ -64,6 +70,7 @@ public class updateMethods {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        logger.info("Log has been updated in Database");
 
     }
 }

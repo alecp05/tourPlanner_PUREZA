@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +20,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class modifyLogController implements Initializable {
+
+    private static final Logger logger = LogManager.getLogger(modifyLogController.class);
 
     public TextField logDate;
     public TextField logReport;
@@ -41,6 +45,8 @@ public class modifyLogController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logManager = logManagerFactory.GetLogManager();
         updateChoiceBox();
+
+        logger.info("Initialized modifyLogView");
     }
 
     public void updateChoiceBox(){
@@ -79,6 +85,8 @@ public class modifyLogController implements Initializable {
             //clear choiceBox and fields
             clearFields();
             updateChoiceBox();
+
+            logger.info("Edit-Button clicked");
 
             //update tourView
             Main m = new Main();
