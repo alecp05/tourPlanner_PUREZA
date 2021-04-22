@@ -1,11 +1,14 @@
 package businesslayer;
 
 import businesslayer.mapQuestApi.apiHandler;
+import businesslayer.report.reportHandler;
 import dataaccesslayer.daos.tourModelDAO;
 import javafx.scene.image.Image;
 import models.tourModel;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -14,6 +17,7 @@ public class tourImplementation implements tourManager{
 
     tourModelDAO tourModelDAO = new tourModelDAO();
     apiHandler apiHandler = new apiHandler();
+    reportHandler reportHandler =new reportHandler();
 
 
     public List<tourModel> GetTourItems(){return tourModelDAO.GetTourItems(); }
@@ -74,6 +78,11 @@ public class tourImplementation implements tourManager{
     @Override
     public void DeleteImage(String tourName) {
         tourModelDAO.DeleteImage(tourName);
+    }
+
+    @Override
+    public void GetTourNameForReport(String tourName) throws FileNotFoundException, MalformedURLException {
+        reportHandler.GetTourNameForReport(tourName);
     }
 
 

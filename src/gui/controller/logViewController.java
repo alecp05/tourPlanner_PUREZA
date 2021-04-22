@@ -151,7 +151,7 @@ public class logViewController implements Initializable {
         tableLogView.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if((newValue != null) && (oldValue != newValue)){
                 currentItem = newValue;
-                System.out.println(currentItem.tourName);
+                //System.out.println(currentItem.tourName);
 
                 logger.info("Current Item is set");
             }

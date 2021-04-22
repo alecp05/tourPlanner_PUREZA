@@ -3,7 +3,9 @@ package businesslayer;
 import javafx.scene.image.Image;
 import models.tourModel;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.List;
 
 public interface tourManager {
@@ -17,4 +19,5 @@ public interface tourManager {
     public void GetImageRequest(String tourName, String start, String end) throws IOException;
     public Image GetTourImage(String tourName, String start,String end) throws IOException;
     public void DeleteImage(String tourName);
+    public void GetTourNameForReport(String tourName) throws FileNotFoundException, MalformedURLException;
 }

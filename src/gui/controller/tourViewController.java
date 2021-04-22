@@ -28,7 +28,9 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
@@ -83,7 +85,6 @@ public class tourViewController implements Initializable {
         mapImageView.setImage(defaultImage);
 
         logger.info("Initialized TourView");
-
     }
 
     private void setUpTourTable(){
@@ -127,7 +128,6 @@ public class tourViewController implements Initializable {
     }
 
 
-
     public void logButtonAction(ActionEvent actionEvent) throws IOException {
         Main m = new Main();
         m.changeScene("views/logView.fxml");
@@ -140,16 +140,15 @@ public class tourViewController implements Initializable {
 
     public void clearAction(ActionEvent actionEvent) {
         tableTourItems.clear();
-
         searchingField.textProperty().setValue("");
 
         List<tourModel> TourItems = tourManager.GetTourItems();
         tableTourItems.addAll(TourItems);
+        currentItem = null;
 
         logger.info("Cleared everything");
 
     }
-
 
     public void addTourButton(ActionEvent actionEvent) {
         Parent root;
@@ -230,11 +229,12 @@ public class tourViewController implements Initializable {
         }
     }
 
-    public void refreshButton(ActionEvent actionEvent) {
-        tableTourItems.clear();
 
-        List<tourModel> TourItems = tourManager.GetTourItems();
-        tableTourItems.addAll(TourItems);
-
+    public void printReportButton(ActionEvent actionEvent) throws FileNotFoundException, MalformedURLException {
+        if(currentItem != null) {
+            tourManager.GetTourNameForReport(currentItem.tourName);
+            logger.info("Print Report-Button clicked");
+        }
+        currentItem = null;
     }
 }

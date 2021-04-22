@@ -3,8 +3,11 @@ package dataaccesslayer.daos;
 import dataaccesslayer.database.dataAccess;
 import dataaccesslayer.database.database;
 import dataaccesslayer.file.filesystem;
+import models.logModel;
 import models.tourModel;
 
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class tourModelDAO {
@@ -37,4 +40,7 @@ public class tourModelDAO {
     public void DeleteImage(String tourName){
         fileAccess.DeleteImage(tourName);
     }
+    public void SavePdfReport(List<tourModel> tours, List<logModel> logs) throws FileNotFoundException, MalformedURLException {
+        fileAccess.SavePdfReport(tours,logs);
+    };
 }

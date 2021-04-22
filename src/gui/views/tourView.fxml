@@ -169,7 +169,7 @@
             <Insets bottom="30.0" left="20.0" right="10.0" top="10.0" />
          </GridPane.margin>
          <children>
-            <Button mnemonicParsing="false" prefHeight="93.0" prefWidth="74.0" style="-fx-background-color: #DEF2F1;" text="Report">
+            <Button mnemonicParsing="false" onAction="#printReportButton" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #DEF2F1;" text="Print Report">
                <HBox.margin>
                   <Insets bottom="30.0" left="40.0" top="30.0" />
                </HBox.margin>
@@ -180,7 +180,6 @@
                   <Insets left="10.0" right="10.0" />
                </padding>
             </Button>
-            <Button mnemonicParsing="false" onAction="#refreshButton" text="Button" />
          </children>
       </HBox>
         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Clear" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
