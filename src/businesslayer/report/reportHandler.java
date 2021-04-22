@@ -2,8 +2,11 @@ package businesslayer.report;
 
 import dataaccesslayer.daos.logModelDAO;
 import dataaccesslayer.daos.tourModelDAO;
+import gui.controller.tourViewController;
 import models.logModel;
 import models.tourModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
@@ -11,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class reportHandler {
+
+    private static final Logger logger = LogManager.getLogger(reportHandler.class);
 
     tourModelDAO tourModelDAO = new tourModelDAO();
     logModelDAO logModelDao = new logModelDAO();
@@ -35,6 +40,8 @@ public class reportHandler {
             }
         }
 
+        logger.info("Getting Tours and Logs for PDF");
         tourModelDAO.SavePdfReport(chosenTourItems,chosenLogItems);
+
     }
 }

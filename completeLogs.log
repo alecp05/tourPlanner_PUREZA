@@ -397,3 +397,57 @@
 2021-04-22 17:26:08.119 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
 2021-04-22 17:26:08.153 [JavaFX Application Thread]  INFO  dataaccesslayer.file.filesystem  - Image has been set into PDF
 2021-04-22 17:26:08.294 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Print Report-Button clicked
+2021-04-22 18:01:44.501 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:01:44.539 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-22 18:01:44.539 [JavaFX Application Thread]  INFO  gui.controller.homeViewController  - Initialized HomeView
+2021-04-22 18:01:45.001 [JavaFX Application Thread]  INFO  gui.Main  - First Scene has been created
+2021-04-22 18:01:46.220 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:01:46.235 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Initialized TourView
+2021-04-22 18:01:46.238 [JavaFX Application Thread]  INFO  gui.Main  - The Scene has been changed/updated
+2021-04-22 18:01:47.042 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-22 18:01:47.049 [JavaFX Application Thread]  WARN  gui.controller.tourViewController  - No TourImage found
+2021-04-22 18:01:48.158 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:01:48.194 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-22 18:01:48.201 [JavaFX Application Thread]  WARN  dataaccesslayer.file.filesystem  - Image not found
+2021-04-22 18:01:48.417 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Print Report-Button clicked
+2021-04-22 18:09:55.853 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:09:56.015 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-22 18:09:56.016 [JavaFX Application Thread]  INFO  gui.controller.homeViewController  - Initialized HomeView
+2021-04-22 18:09:56.480 [JavaFX Application Thread]  INFO  gui.Main  - First Scene has been created
+2021-04-22 18:09:58.971 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:09:58.985 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Initialized TourView
+2021-04-22 18:09:58.989 [JavaFX Application Thread]  INFO  gui.Main  - The Scene has been changed/updated
+2021-04-22 18:09:59.854 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-22 18:09:59.861 [JavaFX Application Thread]  WARN  gui.controller.tourViewController  - No TourImage found
+2021-04-22 18:10:00.848 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:10:00.889 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-22 18:10:00.894 [JavaFX Application Thread]  WARN  dataaccesslayer.file.filesystem  - Image not found
+2021-04-22 18:10:01.138 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Print Report-Button clicked
+2021-04-22 18:15:13.843 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:15:13.881 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-22 18:15:13.881 [JavaFX Application Thread]  INFO  gui.controller.homeViewController  - Initialized HomeView
+2021-04-22 18:15:14.318 [JavaFX Application Thread]  INFO  gui.Main  - First Scene has been created
+2021-04-22 18:15:15.862 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:15:15.876 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Initialized TourView
+2021-04-22 18:15:15.879 [JavaFX Application Thread]  INFO  gui.Main  - The Scene has been changed/updated
+2021-04-22 18:15:17.692 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-22 18:15:17.701 [JavaFX Application Thread]  WARN  gui.controller.tourViewController  - No TourImage found
+2021-04-22 18:15:19.243 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:15:19.291 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-22 18:15:19.292 [JavaFX Application Thread]  INFO  businesslayer.report.reportHandler  - Getting Tours and Logs for PDF
+2021-04-22 18:15:19.295 [JavaFX Application Thread]  WARN  dataaccesslayer.file.filesystem  - Image not found
+2021-04-22 18:15:19.434 [JavaFX Application Thread]  INFO  dataaccesslayer.file.filesystem  - Statistic-PDF has been created
+2021-04-22 18:15:19.460 [JavaFX Application Thread]  INFO  dataaccesslayer.file.filesystem  - Tour-PDF has been created
+2021-04-22 18:15:19.461 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Print Report-Button clicked
+2021-04-22 18:15:19.461 [JavaFX Application Thread]  WARN  gui.controller.tourViewController  - No Tour selected
+2021-04-22 18:15:26.900 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Current Item is set
+2021-04-22 18:15:26.920 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - TourImage shown
+2021-04-22 18:15:27.946 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Tours from Database
+2021-04-22 18:15:27.981 [JavaFX Application Thread]  INFO  dataaccesslayer.database.methods.getMethods  - Getting Logs from Database
+2021-04-22 18:15:27.981 [JavaFX Application Thread]  INFO  businesslayer.report.reportHandler  - Getting Tours and Logs for PDF
+2021-04-22 18:15:27.993 [JavaFX Application Thread]  INFO  dataaccesslayer.file.filesystem  - Image has been set into PDF
+2021-04-22 18:15:27.994 [JavaFX Application Thread]  WARN  dataaccesslayer.file.filesystem  - No Logs have been found
+2021-04-22 18:15:28.006 [JavaFX Application Thread]  INFO  dataaccesslayer.file.filesystem  - Tour-PDF has been created
+2021-04-22 18:15:28.007 [JavaFX Application Thread]  INFO  gui.controller.tourViewController  - Print Report-Button clicked
+2021-04-22 18:15:28.007 [JavaFX Application Thread]  WARN  gui.controller.tourViewController  - No Tour selected
+2021-04-22 18:15:36.973 [JavaFX Application Thread]  WARN  gui.controller.tourViewController  - No Tour selected

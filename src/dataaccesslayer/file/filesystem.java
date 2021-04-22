@@ -123,6 +123,9 @@ public class filesystem implements fileAccess {
                 tableLog2.addCell(Integer.toString(logs.get(i).logRating)).addCell(logs.get(i).logAverageSpeed).addCell(logs.get(i).logWeatherCondition)
                         .addCell(Integer.toString(logs.get(i).logBreaksTaken)).addCell(logs.get(i).logStartingPoint).addCell(logs.get(i).logEndPoint);
             }
+            createStatisticsReport(tourName,logs);
+        }else {
+            logger.warn("No Logs have been found");
         }
 
         //set pdf
@@ -146,7 +149,58 @@ public class filesystem implements fileAccess {
         document.add(newLineParagraph);
         document.add(tableLog2);
 
+        logger.info("Tour-PDF has been created");
 
+        document.close();
+    }
+
+    private void createStatisticsReport(String tourName,List<logModel> logs) throws FileNotFoundException {
+
+        Text titleLog = new Text("\nLogs").setFontSize(18f).setBold();
+        Text summarizedTime = new Text("\nSummarized Total-Time:\n").setUnderline().setFontSize(14f);
+        Text summarizedDistance = new Text("\nSummarized Distance:\n").setUnderline().setFontSize(14f);
+
+        String path = "pdfs/"+ tourName + "-statistics.pdf";
+
+
+        //Set LogTable Part 2
+        float columnWidth[] = {100f, 100f};
+        Table tableLog = new Table(columnWidth);
+        tableLog.addCell("Total-Time").addCell("Distance");
+
+        int sumTime = 0;
+        int sumDistance = 0;
+
+        for(int j =0; j<logs.size();j++){
+            tableLog.addCell(logs.get(j).logTotalTime).addCell(logs.get(j).logDistance);
+            String totalTime [] = logs.get(j).logTotalTime.split(" ");
+            String totalDistance [] = logs.get(j).logDistance.split(" ");
+
+            sumTime = sumTime + Integer.parseInt(totalTime[0]);
+            sumDistance = sumDistance + Integer.parseInt(totalDistance[0]);
+        }
+
+        Text totalTimes = new Text(Integer.toString(sumTime));
+        Text totalDistance = new Text(Integer.toString(sumDistance));
+
+        //paragraphs
+        Paragraph paragraphTime = new Paragraph(summarizedTime).add(totalTimes);
+        Paragraph paragraphDistance = new Paragraph(summarizedDistance).add(totalDistance);
+
+
+        //set pdf statistics
+        Paragraph paragraph1 = new Paragraph(titleLog);
+        PdfWriter pdfWriter = new PdfWriter(path);
+        PdfDocument pdfDocument = new PdfDocument(pdfWriter);
+        pdfDocument.addNewPage();
+
+        Document document = new Document(pdfDocument);
+        document.add(paragraph1);
+        document.add(tableLog);
+        document.add(paragraphTime);
+        document.add(paragraphDistance);
+
+        logger.info("Statistic-PDF has been created");
         document.close();
 
     }

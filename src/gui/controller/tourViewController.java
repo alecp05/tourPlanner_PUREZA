@@ -234,6 +234,8 @@ public class tourViewController implements Initializable {
         if(currentItem != null) {
             tourManager.GetTourNameForReport(currentItem.tourName);
             logger.info("Print Report-Button clicked");
+        }else {
+            logger.warn("No Tour selected");
         }
         currentItem = null;
     }
