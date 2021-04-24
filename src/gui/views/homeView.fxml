@@ -17,7 +17,7 @@
     <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="237.0" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" text="Tour Planner" textFill="WHITE">
+      <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0); -fx-border-radius: 25px;" text="Tour Planner" textFill="WHITE">
          <font>
             <Font name="Forte" size="25.0" />
          </font>
@@ -34,7 +34,7 @@
       </TextField>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-radius: 25px;" GridPane.rowIndex="2">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 10px;" text="Tours" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0">
                      <font>
@@ -55,7 +55,7 @@
                      </cursor>
                   </TableView>
                </children></AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;">
                <children>
                    <Label alignment="CENTER" contentDisplay="CENTER" layoutY="2.0" prefHeight="23.0" prefWidth="95.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 10px;" text="Logs" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0">
                        <font>
@@ -86,7 +86,7 @@
             <Insets bottom="30.0" left="20.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </SplitPane>
-      <Button alignment="CENTER" mnemonicParsing="false" onAction="#searchingAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#searchingAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #17252A; -fx-border-color: #ffffff; -fx-border-radius: 25px;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font>
@@ -97,7 +97,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #17252A; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0); -fx-border-color: #FFFFFF; -fx-border-radius: 30px;" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="30.0" left="20.0" right="20.0" top="10.0" />
          </GridPane.margin>
@@ -134,7 +134,7 @@
                </cursor>
             </Button>
          </children></VBox>
-       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #2B7A78;" text="Clear" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+       <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clearAction" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: #17252A; -fx-border-radius: 25px; -fx-border-color: #ffffff;" text="Clear" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
            <GridPane.margin>
                <Insets bottom="10.0" left="80.0" top="10.0" />
            </GridPane.margin>

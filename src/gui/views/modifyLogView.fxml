@@ -94,19 +94,19 @@
                 </TextField>
             </children>
         </VBox>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9;" text="Edit Logs" textAlignment="CENTER" textFill="WHITE">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px;" text="Edit Logs" textAlignment="CENTER" textFill="WHITE">
             <GridPane.margin>
                 <Insets left="50.0" right="50.0" />
             </GridPane.margin>
             <font>
                 <Font name="Forte" size="20.0" />
             </font></Label>
-        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #2C4C4B; -fx-background-radius: 25px;" GridPane.rowIndex="2">
+        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px; -fx-border-color: #ffffff; -fx-border-radius: 25px;" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </GridPane.margin>
             <children>
-                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editLogButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #17252A;" text="Edit" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editLogButton" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #DEF2F1;" text="Edit" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" left="50.0" top="10.0" />
                     </HBox.margin>
