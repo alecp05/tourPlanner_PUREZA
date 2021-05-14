@@ -65,7 +65,7 @@ public class addLogController implements Initializable {
         String tempEnd = logEnd.textProperty().getValue();
 
 
-        System.out.println(logName + "test");
+        //System.out.println(logName + "test");
         //insert into database
         if(logName != null) {
             logManager.InsertLogItem(logName, tempDate, tempReport, tempDistance, tempTotalTime,
@@ -105,7 +105,7 @@ public class addLogController implements Initializable {
 
         tourChoices.addAll(tourNames);
         tourChoiceBox.getItems().addAll(tourChoices);
-        System.out.println(tourChoiceBox);
+        //System.out.println(tourChoiceBox);
 
         logger.info("Initialized addLogView");
     }

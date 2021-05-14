@@ -3,14 +3,18 @@ package gui.controller;
 import businesslayer.tourManager;
 import businesslayer.tourManagerFactory;
 import gui.Main;
+import gui.viewmodels.addTourViewModel;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class addTourController {
+public class addTourController implements Initializable {
 
     private static final Logger logger = LogManager.getLogger(addTourController.class);
 
@@ -22,27 +26,11 @@ public class addTourController {
 
     private businesslayer.tourManager tourManager;
 
+    public addTourViewModel addTourViewModel = new addTourViewModel();
+
     public void addTourButton(ActionEvent actionEvent) throws IOException {
 
-        tourManager = tourManagerFactory.GetTourManager();
-
-        String tempName = tourName.textProperty().getValue();
-        //System.out.println(tempName);
-        String tempDescription = tourDescription.textProperty().getValue();
-        Integer tempDistance = 0;
-        if(tempName != "") {
-            tempDistance = Integer.parseInt(tourDistance.textProperty().getValue());
-        }
-        String tempStart = tourStart.textProperty().getValue();
-        String tempEnd = tourEnd.textProperty().getValue();
-
-        //insert to database
-        if(tempName != ""){
-
-            tourManager.InsertTourItem(tempName,tempDescription,tempDistance,tempStart,tempEnd);
-            addMapImage(tempName,tempStart,tempEnd);
-        }
-
+        addTourViewModel.addingTour();
         clearFields();
 
         //update tourView
@@ -60,7 +48,13 @@ public class addTourController {
         tourEnd.clear();
     }
 
-    public void addMapImage(String tourName, String start, String end) throws IOException {
-        tourManager.GetImageRequest(tourName,start,end);
+    //Bindings to addTourViewModel
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        tourName.textProperty().bindBidirectional(addTourViewModel.getTourName());
+        tourDescription.textProperty().bindBidirectional(addTourViewModel.getTourDescription());
+        tourDistance.textProperty().bindBidirectional(addTourViewModel.getTourDistance());
+        tourStart.textProperty().bindBidirectional(addTourViewModel.getTourStart());
+        tourEnd.textProperty().bindBidirectional(addTourViewModel.getTourEnd());
     }
 }
