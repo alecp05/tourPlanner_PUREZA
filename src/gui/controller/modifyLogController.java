@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import lombok.SneakyThrows;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -42,6 +43,7 @@ public class modifyLogController implements Initializable {
 
     public modifyLogViewModel modifyLogViewModel = new modifyLogViewModel();
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Bindings to modifyLogViewModel
@@ -62,7 +64,7 @@ public class modifyLogController implements Initializable {
         logger.info("Initialized modifyLogView");
     }
 
-    public void updateChoiceBox(){
+    public void updateChoiceBox() throws IOException {
         logChoices = FXCollections.observableArrayList();
         List<String> tourNames = modifyLogViewModel.gettingLogNames();
 

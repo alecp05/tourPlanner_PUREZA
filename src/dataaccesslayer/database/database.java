@@ -1,5 +1,6 @@
 package dataaccesslayer.database;
 
+import dataaccesslayer.configuration.configurationHandler;
 import dataaccesslayer.database.methods.deleteMethods;
 import dataaccesslayer.database.methods.getMethods;
 import dataaccesslayer.database.methods.insertMethods;
@@ -7,6 +8,7 @@ import dataaccesslayer.database.methods.updateMethods;
 import models.logModel;
 import models.tourModel;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,24 +16,23 @@ import java.util.List;
 
 public class database implements dataAccess {
 
+    configurationHandler configurationHandler = new configurationHandler();
+
     private String url;
     private String user;
     private String password;
-    private String connectionString;
 
     getMethods getMethod = new getMethods();
     insertMethods insertMethods = new insertMethods();
     deleteMethods deleteMethods = new deleteMethods();
     updateMethods updateMethods= new updateMethods();
 
-    public database(){
+    public database() throws IOException {
         //get info from config file
-        connectionString = "...";
         //establish DB connection
-
-        url ="jdbc:postgresql://localhost:5432/tourPlanner";
-        user = "postgres";
-        password = "alecUser";
+        url = configurationHandler.getUrl();
+        user = configurationHandler.getUser();
+        password = configurationHandler.getPassword();
     };
 
     @Override

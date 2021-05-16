@@ -9,6 +9,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,9 @@ public class reportHandler {
 
     tourModelDAO tourModelDAO = new tourModelDAO();
     logModelDAO logModelDao = new logModelDAO();
+
+    public reportHandler() throws IOException {
+    }
 
     public void GetTourNameForReport(String tourName) throws FileNotFoundException, MalformedURLException {
         //System.out.println("report " + tourName);

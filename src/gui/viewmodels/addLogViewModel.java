@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import lombok.Getter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class addLogViewModel {
     private businesslayer.logManager logManager;
     private businesslayer.tourManager tourManager;
 
-    public void addingLog(String logNameTemp){
+    public void addingLog(String logNameTemp) throws IOException {
         logManager = logManagerFactory.GetLogManager();
 
         //set choiceBox
@@ -64,7 +65,7 @@ public class addLogViewModel {
         }
     }
 
-    public List<String> gettingTours(){
+    public List<String> gettingTours() throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
 
         List<String> tourNames = new ArrayList<String>();

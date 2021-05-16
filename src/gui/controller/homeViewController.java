@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lombok.SneakyThrows;
 import models.logModel;
 import models.tourModel;
 import org.apache.log4j.LogManager;
@@ -92,6 +93,7 @@ public class homeViewController implements Initializable {
     public homeViewModel homeViewModel = new homeViewModel();
 
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -114,7 +116,7 @@ public class homeViewController implements Initializable {
     }
 
 
-    private void setUpTourTable(){
+    private void setUpTourTable() throws IOException {
         tableTourItems = FXCollections.observableArrayList();
         tableTourItems.addAll(homeViewModel.gettingTourItems());
     }
@@ -129,7 +131,7 @@ public class homeViewController implements Initializable {
         tableTourView.setItems(tableTourItems);
     }
 
-    private void setUpLogTable(){
+    private void setUpLogTable() throws IOException {
         tableLogItems = FXCollections.observableArrayList();
         tableLogItems.addAll(homeViewModel.gettingLogItems());
     }
@@ -170,7 +172,7 @@ public class homeViewController implements Initializable {
         m.changeScene("views/logView.fxml");
     }
 
-    public void searchingAction(ActionEvent actionEvent) {
+    public void searchingAction(ActionEvent actionEvent) throws IOException {
         tableTourItems.clear();
         tableLogItems.clear();
 
@@ -182,7 +184,7 @@ public class homeViewController implements Initializable {
         logger.info("Search Function clicked");
     }
 
-    public void clearAction(ActionEvent actionEvent) {
+    public void clearAction(ActionEvent actionEvent) throws IOException {
         tableTourItems.clear();
         tableLogItems.clear();
 

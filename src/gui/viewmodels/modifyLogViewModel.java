@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import lombok.Getter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class modifyLogViewModel {
 
     private businesslayer.logManager logManager;
 
-    public List<String> gettingLogNames(){
+    public List<String> gettingLogNames() throws IOException {
         logManager = logManagerFactory.GetLogManager();
 
         List<String> tourNames = new ArrayList<String>();
@@ -42,7 +43,7 @@ public class modifyLogViewModel {
         return tourNames;
     }
 
-    public void updatingLog(String indexTourDate){
+    public void updatingLog(String indexTourDate) throws IOException {
         logManager = logManagerFactory.GetLogManager();
 
         String tempDate = logDate.getValue();

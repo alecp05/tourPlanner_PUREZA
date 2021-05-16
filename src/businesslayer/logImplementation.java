@@ -3,6 +3,7 @@ package businesslayer;
 import dataaccesslayer.daos.logModelDAO;
 import models.logModel;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -10,6 +11,9 @@ import java.util.stream.Collectors;
 public class logImplementation implements logManager{
 
     logModelDAO logModelDAO = new logModelDAO();
+
+    public logImplementation() throws IOException {
+    }
 
     public List<logModel> GetLogItems(){return logModelDAO.GetLogItems();}
 

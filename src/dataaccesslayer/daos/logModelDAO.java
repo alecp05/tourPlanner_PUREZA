@@ -4,12 +4,13 @@ import dataaccesslayer.database.dataAccess;
 import dataaccesslayer.database.database;
 import models.logModel;
 
+import java.io.IOException;
 import java.util.List;
 
 public class logModelDAO {
     private dataaccesslayer.database.dataAccess dataAccess;
 
-    public logModelDAO(){
+    public logModelDAO() throws IOException {
         dataAccess = new database();
     }
 

@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import lombok.SneakyThrows;
 import models.tourModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -39,6 +40,7 @@ public class modifyTourController implements Initializable {
     public modifyTourViewModel modifyTourViewModel = new modifyTourViewModel();
 
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Binding to modifyTourViewModel

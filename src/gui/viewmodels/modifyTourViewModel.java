@@ -22,7 +22,7 @@ public class modifyTourViewModel {
 
     private businesslayer.tourManager tourManager;
 
-    public List<String> gettingTourNames(){
+    public List<String> gettingTourNames() throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
 
         List<String> tourNames = new ArrayList<String>();

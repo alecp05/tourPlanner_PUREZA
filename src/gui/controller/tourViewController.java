@@ -68,6 +68,7 @@ public class tourViewController implements Initializable {
     @FXML
     private ImageView mapImageView;
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -84,7 +85,7 @@ public class tourViewController implements Initializable {
         logger.info("Initialized TourView");
     }
 
-    private void setUpTourTable(){
+    private void setUpTourTable() throws IOException {
         tableTourItems = FXCollections.observableArrayList();
         tableTourItems.addAll(tourViewModel.gettingTourItems());
     }
@@ -99,7 +100,7 @@ public class tourViewController implements Initializable {
         tableTourView.setItems(tableTourItems);
     }
 
-    public void searchingAction(ActionEvent actionEvent) {
+    public void searchingAction(ActionEvent actionEvent) throws IOException {
         tableTourItems.clear();
 
         List<tourModel> tourItems = tourViewModel.searchingTours(searchingField.textProperty().getValue());
@@ -135,7 +136,7 @@ public class tourViewController implements Initializable {
         m.changeScene("views/homeView.fxml");
     }
 
-    public void clearAction(ActionEvent actionEvent) {
+    public void clearAction(ActionEvent actionEvent) throws IOException {
         tableTourItems.clear();
         searchingField.textProperty().setValue("");
 
@@ -163,7 +164,7 @@ public class tourViewController implements Initializable {
         }
     }
 
-    public void deleteButton(ActionEvent actionEvent) {
+    public void deleteButton(ActionEvent actionEvent) throws IOException {
         if(currentItem != null) {
             //tourManager.DeleteTourItem(currentItem.tourName,currentItem.tourDescription);
             tourViewModel.deletingTour(currentItem.tourName,currentItem.tourDescription);
@@ -229,7 +230,7 @@ public class tourViewController implements Initializable {
     }
 
 
-    public void printReportButton(ActionEvent actionEvent) throws FileNotFoundException, MalformedURLException {
+    public void printReportButton(ActionEvent actionEvent) throws IOException {
         if(currentItem != null) {
             //tourManager.GetTourNameForReport(currentItem.tourName);
             tourViewModel.gettingTourNameForReport(currentItem.tourName);

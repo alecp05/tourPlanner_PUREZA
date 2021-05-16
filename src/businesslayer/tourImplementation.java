@@ -19,6 +19,9 @@ public class tourImplementation implements tourManager{
     apiHandler apiHandler = new apiHandler();
     reportHandler reportHandler =new reportHandler();
 
+    public tourImplementation() throws IOException {
+    }
+
 
     public List<tourModel> GetTourItems(){return tourModelDAO.GetTourItems(); }
 

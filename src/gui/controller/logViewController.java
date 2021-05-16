@@ -16,6 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lombok.SneakyThrows;
 import models.logModel;
 import models.tourModel;
 import org.apache.log4j.LogManager;
@@ -66,6 +67,7 @@ public class logViewController implements Initializable {
 
     public logViewModel logViewModel = new logViewModel();
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //log TableView
@@ -77,7 +79,7 @@ public class logViewController implements Initializable {
         logger.info("Initialized LogView");
     }
 
-    private void setUpLogTable(){
+    private void setUpLogTable() throws IOException {
         tableLogItems = FXCollections.observableArrayList();
         tableLogItems.addAll(logViewModel.gettingLogItems());
     }
@@ -98,7 +100,7 @@ public class logViewController implements Initializable {
         tableLogView.setItems(tableLogItems);
     }
 
-    public void searchingAction(ActionEvent actionEvent) {
+    public void searchingAction(ActionEvent actionEvent) throws IOException {
         tableLogItems.clear();
 
         List<logModel> logItems = logViewModel.searchingLogItems(searchingField.textProperty().getValue());
@@ -107,7 +109,7 @@ public class logViewController implements Initializable {
         logger.info("Search Function clicked");
     }
 
-    public void clearAction(ActionEvent actionEvent) {
+    public void clearAction(ActionEvent actionEvent) throws IOException {
         tableLogItems.clear();
 
         searchingField.textProperty().setValue("");
@@ -156,7 +158,7 @@ public class logViewController implements Initializable {
         }));
     }
 
-    public void deleteLogButton(ActionEvent actionEvent) {
+    public void deleteLogButton(ActionEvent actionEvent) throws IOException {
         if(currentItem != null) {
             //logManager.DeleteLogItem(currentItem.logDate, currentItem.logReport);
             logViewModel.deletingLog(currentItem.logDate, currentItem.logReport);

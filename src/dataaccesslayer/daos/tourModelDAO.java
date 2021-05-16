@@ -7,6 +7,7 @@ import models.logModel;
 import models.tourModel;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class tourModelDAO {
     private dataaccesslayer.database.dataAccess dataAccess;
     private dataaccesslayer.file.fileAccess fileAccess;
 
-    public tourModelDAO(){
+    public tourModelDAO() throws IOException {
         dataAccess = new database();
         fileAccess = new filesystem();
     }

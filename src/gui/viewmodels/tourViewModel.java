@@ -13,20 +13,20 @@ public class tourViewModel {
     //businessLayer communication
     private businesslayer.tourManager tourManager;
 
-    public List<tourModel> gettingTourItems(){
+    public List<tourModel> gettingTourItems() throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
         return tourManager.GetTourItems();
     }
 
-    public List<tourModel> searchingTours(String tourName){
+    public List<tourModel> searchingTours(String tourName) throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
         return tourManager.SearchTourItems(tourName, false);
     }
-    public void deletingTour(String tourName, String description){
+    public void deletingTour(String tourName, String description) throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
         tourManager.DeleteTourItem(tourName,description);
     }
-    public void deletingImage(String tourName){
+    public void deletingImage(String tourName) throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
         tourManager.DeleteImage(tourName);
     }
@@ -34,7 +34,7 @@ public class tourViewModel {
         tourManager = tourManagerFactory.GetTourManager();
         return tourManager.GetTourImage(tourName, tourStart, tourEnd);
     }
-    public void gettingTourNameForReport(String tourName) throws FileNotFoundException, MalformedURLException {
+    public void gettingTourNameForReport(String tourName) throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
         tourManager.GetTourNameForReport(tourName);
     }
