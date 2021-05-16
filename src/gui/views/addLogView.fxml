@@ -79,7 +79,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                     </VBox.margin>
                 </TextField>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="119.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Rating (1-10):" textAlignment="CENTER" textFill="WHITE">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="119.0" style="-fx-background-color: #17252A; -fx-background-radius: 25px;" text="Rating (0-10):" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="Century Gothic" size="14.0" />
                     </font>

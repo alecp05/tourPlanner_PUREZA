@@ -1,9 +1,12 @@
 package gui.viewmodels;
 
+import businesslayer.inputValidation.inputValidationImplementation;
+import businesslayer.inputValidation.inputValidationManager;
 import businesslayer.logManagerFactory;
 import businesslayer.tourManagerFactory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.TextField;
 import lombok.Getter;
 
 import java.io.IOException;
@@ -35,7 +38,9 @@ public class addLogViewModel {
     private businesslayer.logManager logManager;
     private businesslayer.tourManager tourManager;
 
-    public void addingLog(String logNameTemp) throws IOException {
+    public inputValidationManager inputValidationManager = new inputValidationImplementation();
+
+    public int addingLog(String logNameTemp) throws IOException {
         logManager = logManagerFactory.GetLogManager();
 
         //set choiceBox
@@ -47,7 +52,7 @@ public class addLogViewModel {
         String tempTotalTime = logTotalTime.getValue();
         Integer tempRating = 0;
         Integer tempBreaks = 0;
-        if(logName != null){
+        if((logRating.getValue() != "") && (logBreaks.getValue() != "")) {
             tempRating = Integer.parseInt(logRating.getValue());
             tempBreaks = Integer.parseInt(logBreaks.getValue());
         }
@@ -56,12 +61,22 @@ public class addLogViewModel {
         String tempStart = logStart.getValue();
         String tempEnd = logEnd.getValue();
 
-
         //System.out.println(logName + "test");
         //insert into database
-        if(logName != null) {
+        if((logName != null) && (tempDate != "") && (tempReport != "") && (tempDistance != "") && (tempTotalTime != "")
+                && (tempRating != 0) && (tempBreaks) != 0 && (tempSpeed != "") && (tempWeather != "") && (tempStart != "") && (tempEnd != "")) {
+
+            //Check if Formats of Date, Distance and TotalTime is correct
+            boolean tempBoolean = inputValidationManager.checkFormat(tempDate,tempDistance,tempTotalTime);
+            if(!tempBoolean){
+                return 3;
+            }
+
             logManager.InsertLogItem(logName, tempDate, tempReport, tempDistance, tempTotalTime,
                     tempRating, tempSpeed, tempWeather, tempBreaks, tempStart, tempEnd);
+            return 1;
+        }else{
+            return 2;
         }
     }
 
@@ -72,5 +87,13 @@ public class addLogViewModel {
         tourNames = tourManager.GetTourNames();
 
         return tourNames;
+    }
+
+    //inputValidation
+    public void setFieldRestrictions(TextField logRating, TextField logBreaks, TextField logStart, TextField logEnd){
+        inputValidationManager.onlyNumbers(logBreaks);
+        inputValidationManager.onlyOneToTen(logRating);
+        inputValidationManager.onlyCharacters(logStart);
+        inputValidationManager.onlyCharacters(logEnd);
     }
 }
