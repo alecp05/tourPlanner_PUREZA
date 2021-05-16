@@ -52,8 +52,10 @@ public class addTourViewModel {
         //Check if TourName is already taken
         List<tourModel> allTours = tourManager.GetTourItems();
         for(int i = 0; i < allTours.size();i++){
-            if(allTours.get(i).tourName.equals(tempName))
+            if(allTours.get(i).tourName.equals(tempName)){
+                logger.warn("TourName is already been taken");
                 return 3;
+            }
         }
 
         //insert to database if Fields are not empty
@@ -63,10 +65,12 @@ public class addTourViewModel {
             //System.out.println(tempDescription+tempDistance+tempStart+tempEnd);
             return 1;
         }
+        logger.warn("Empty UserInput");
         return 2;
     }
 
     public void addMapImage(String tourName, String start, String end) throws IOException {
+        tourManager = tourManagerFactory.GetTourManager();
         tourManager.GetImageRequest(tourName,start,end);
     }
 

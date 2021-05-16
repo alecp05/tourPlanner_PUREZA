@@ -34,7 +34,9 @@ public class addTourController implements Initializable {
 
     public void addTourButton(ActionEvent actionEvent) throws IOException {
 
-        if(addTourViewModel.addingTour() == 2){
+        int tempNumber = addTourViewModel.addingTour();
+
+        if(tempNumber == 2){
             Parent root;
             try {
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/emptyFieldsView.fxml"));
@@ -46,7 +48,7 @@ public class addTourController implements Initializable {
             catch (IOException e) {
                 e.printStackTrace();
             }
-        }else if(addTourViewModel.addingTour() == 3)
+        }else if(tempNumber == 3)
         {
             Parent root;
             try {

@@ -8,9 +8,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import models.tourModel;
 import org.apache.log4j.LogManager;
@@ -58,6 +62,9 @@ public class modifyTourController implements Initializable {
         tourChoices.addAll(tourNames);
         tourChoiceBox.getItems().addAll(tourChoices);
 
+        //set input ValidationsRestrictions
+        modifyTourViewModel.setFieldRestrictions(tourDistance,tourStart,tourEnd);
+
         logger.info("Initialized modifyTourView");
 
     }
@@ -65,9 +72,19 @@ public class modifyTourController implements Initializable {
     public void editButton(ActionEvent actionEvent) throws IOException {
         String chosenTour = tourChoiceBox.getValue();
         int indexOfTour = tourChoices.indexOf(chosenTour);
-        if(chosenTour!=null){
-            modifyTourViewModel.editingTour(chosenTour);
-
+        if(modifyTourViewModel.editingTour(chosenTour) == 2){
+            Parent root;
+            try {
+                root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/emptyFieldsView.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Error on Input");
+                stage.setScene(new Scene(root, 700, 450));
+                stage.show();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
             clearFields();
 
             //update tourView
@@ -75,7 +92,6 @@ public class modifyTourController implements Initializable {
             m.changeScene("views/tourView.fxml");
 
             logger.info("Edit-Button clicked");
-
         }
     }
 
