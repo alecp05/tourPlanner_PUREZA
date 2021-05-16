@@ -2,6 +2,7 @@ package gui.controller;
 
 import businesslayer.tourManagerFactory;
 import gui.Main;
+import gui.viewmodels.tourViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -59,20 +60,16 @@ public class tourViewController implements Initializable {
     private ObservableList<tourModel> tableTourItems;
 
 
-    //businessLayer communication
-    private businesslayer.tourManager tourManager;
+    public tourViewModel tourViewModel = new tourViewModel();
 
     //select current
     private tourModel currentItem = null;
 
-
     @FXML
     private ImageView mapImageView;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tourManager = tourManagerFactory.GetTourManager();
 
         //tour TableView
         setUpTourTable();
@@ -89,7 +86,7 @@ public class tourViewController implements Initializable {
 
     private void setUpTourTable(){
         tableTourItems = FXCollections.observableArrayList();
-        tableTourItems.addAll(tourManager.GetTourItems());
+        tableTourItems.addAll(tourViewModel.gettingTourItems());
     }
 
     private void formatTourTableColumns(){
@@ -105,7 +102,7 @@ public class tourViewController implements Initializable {
     public void searchingAction(ActionEvent actionEvent) {
         tableTourItems.clear();
 
-        List<tourModel> tourItems = tourManager.SearchTourItems(searchingField.textProperty().getValue(), false);
+        List<tourModel> tourItems = tourViewModel.searchingTours(searchingField.textProperty().getValue());
         tableTourItems.addAll(tourItems);
 
         logger.info("Search Function clicked");
@@ -142,7 +139,7 @@ public class tourViewController implements Initializable {
         tableTourItems.clear();
         searchingField.textProperty().setValue("");
 
-        List<tourModel> TourItems = tourManager.GetTourItems();
+        List<tourModel> TourItems = tourViewModel.gettingTourItems();
         tableTourItems.addAll(TourItems);
         currentItem = null;
 
@@ -168,12 +165,14 @@ public class tourViewController implements Initializable {
 
     public void deleteButton(ActionEvent actionEvent) {
         if(currentItem != null) {
-            tourManager.DeleteTourItem(currentItem.tourName,currentItem.tourDescription);
-            tourManager.DeleteImage(currentItem.tourName);
+            //tourManager.DeleteTourItem(currentItem.tourName,currentItem.tourDescription);
+            tourViewModel.deletingTour(currentItem.tourName,currentItem.tourDescription);
+            //tourManager.DeleteImage(currentItem.tourName);
+            tourViewModel.deletingImage(currentItem.tourName);
 
             //update table
             tableTourItems.clear();
-            List<tourModel> TourItems = tourManager.GetTourItems();
+            List<tourModel> TourItems = tourViewModel.gettingTourItems();
             tableTourItems.addAll(TourItems);
 
 
@@ -209,7 +208,7 @@ public class tourViewController implements Initializable {
 
             if(getClass().getResource(pathName) == null){
                 //System.out.println(currentItem.tourName + currentItem.tourStart + currentItem.tourEnd);
-                Image tourImage = tourManager.GetTourImage(currentItem.tourName , currentItem.tourStart , currentItem.tourEnd);
+                Image tourImage = tourViewModel.gettingTourImage(currentItem.tourName , currentItem.tourStart , currentItem.tourEnd);
                 mapImageView.setImage(tourImage);
             }else {
                 //ImageIcon trying = new ImageIcon(getClass().getResource(pathName).toURI().toString());
@@ -232,7 +231,8 @@ public class tourViewController implements Initializable {
 
     public void printReportButton(ActionEvent actionEvent) throws FileNotFoundException, MalformedURLException {
         if(currentItem != null) {
-            tourManager.GetTourNameForReport(currentItem.tourName);
+            //tourManager.GetTourNameForReport(currentItem.tourName);
+            tourViewModel.gettingTourNameForReport(currentItem.tourName);
             logger.info("Print Report-Button clicked");
         }else {
             logger.warn("No Tour selected");

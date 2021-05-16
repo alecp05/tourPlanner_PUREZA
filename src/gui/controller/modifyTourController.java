@@ -3,6 +3,7 @@ package gui.controller;
 import businesslayer.tourManager;
 import businesslayer.tourManagerFactory;
 import gui.Main;
+import gui.viewmodels.modifyTourViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,16 +35,23 @@ public class modifyTourController implements Initializable {
     public TextField tourStart;
     public TextField tourEnd;
 
-    private businesslayer.tourManager tourManager;
+
+    public modifyTourViewModel modifyTourViewModel = new modifyTourViewModel();
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tourManager = tourManagerFactory.GetTourManager();
+        //Binding to modifyTourViewModel
+        tourDescription.textProperty().bindBidirectional(modifyTourViewModel.getTourDescription());
+        tourDistance.textProperty().bindBidirectional(modifyTourViewModel.getTourDistance());
+        tourStart.textProperty().bindBidirectional(modifyTourViewModel.getTourStart());
+        tourEnd.textProperty().bindBidirectional(modifyTourViewModel.getTourEnd());
+
+
         tourChoices = FXCollections.observableArrayList();
 
         List<String> tourNames = new ArrayList<String>();
-        tourNames = tourManager.GetTourNames();
+        tourNames = modifyTourViewModel.gettingTourNames();
 
         tourChoices.addAll(tourNames);
         tourChoiceBox.getItems().addAll(tourChoices);
@@ -56,20 +64,7 @@ public class modifyTourController implements Initializable {
         String chosenTour = tourChoiceBox.getValue();
         int indexOfTour = tourChoices.indexOf(chosenTour);
         if(chosenTour!=null){
-            System.out.println(chosenTour + " " +  indexOfTour);
-
-            //get inputs of textFields
-            String tempDescription = tourDescription.textProperty().getValue();
-            int tempDistance = Integer.parseInt(tourDistance.textProperty().getValue());
-            String tempStart = tourStart.textProperty().getValue();
-            String tempEnd = tourEnd.textProperty().getValue();
-
-            //update in database
-            tourManager.UpdateTourItem(chosenTour,tempDescription,tempDistance,tempStart,tempEnd);
-
-            //delete and create nur jpg-image
-            tourManager.DeleteImage(chosenTour);
-            tourManager.GetImageRequest(chosenTour,tempStart,tempEnd);
+            modifyTourViewModel.editingTour(chosenTour);
 
             clearFields();
 

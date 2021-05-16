@@ -3,6 +3,7 @@ package gui.controller;
 import businesslayer.logManagerFactory;
 import businesslayer.tourManagerFactory;
 import gui.Main;
+import gui.viewmodels.homeViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -88,11 +89,11 @@ public class homeViewController implements Initializable {
     private businesslayer.tourManager tourManager;
     private businesslayer.logManager logManager;
 
+    public homeViewModel homeViewModel = new homeViewModel();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tourManager = tourManagerFactory.GetTourManager();
-        logManager = logManagerFactory.GetLogManager();
 
         //setUpTourView();
         //FormatTourCells();
@@ -115,7 +116,7 @@ public class homeViewController implements Initializable {
 
     private void setUpTourTable(){
         tableTourItems = FXCollections.observableArrayList();
-        tableTourItems.addAll(tourManager.GetTourItems());
+        tableTourItems.addAll(homeViewModel.gettingTourItems());
     }
 
     private void formatTourTableColumns(){
@@ -130,7 +131,7 @@ public class homeViewController implements Initializable {
 
     private void setUpLogTable(){
         tableLogItems = FXCollections.observableArrayList();
-        tableLogItems.addAll(logManager.GetLogItems());
+        tableLogItems.addAll(homeViewModel.gettingLogItems());
     }
 
     private void formatLogTableColumns(){
@@ -150,15 +151,14 @@ public class homeViewController implements Initializable {
     }
 
 
-    private void SetCurrentTourItem(){
+/*    private void SetCurrentTourItem(){
         tableTourView.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if((newValue != null) && (oldValue != newValue)){
                 currentItem = newValue;
                 System.out.println(currentItem.tourName);
             }
         }));
-    }
-
+    }*/
 
     public void tourButtonAction(ActionEvent actionEvent) throws IOException {
         Main m = new Main();
@@ -174,9 +174,9 @@ public class homeViewController implements Initializable {
         tableTourItems.clear();
         tableLogItems.clear();
 
-        List<tourModel> tourItems = tourManager.SearchTourItems(searchingField.textProperty().getValue(), false);
+        List<tourModel> tourItems = homeViewModel.searchingTourItems(searchingField.textProperty().getValue());
         tableTourItems.addAll(tourItems);
-        List<logModel> logItems = logManager.SearchLogItems(searchingField.textProperty().getValue(), false);
+        List<logModel> logItems = homeViewModel.searchingLogItems(searchingField.textProperty().getValue());
         tableLogItems.addAll(logItems);
 
         logger.info("Search Function clicked");
@@ -188,10 +188,10 @@ public class homeViewController implements Initializable {
 
         searchingField.textProperty().setValue("");
 
-        List<tourModel> TourItems = tourManager.GetTourItems();
+        List<tourModel> TourItems = homeViewModel.searchingTourItems(searchingField.textProperty().getValue());
         tableTourItems.addAll(TourItems);
 
-        List<logModel> LogItems = logManager.GetLogItems();
+        List<logModel> LogItems = homeViewModel.searchingLogItems(searchingField.textProperty().getValue());
         tableLogItems.addAll(LogItems);
 
         logger.info("Clear Function clicked");

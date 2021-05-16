@@ -3,6 +3,7 @@ package gui.controller;
 import businesslayer.logManagerFactory;
 import businesslayer.tourManagerFactory;
 import gui.Main;
+import gui.viewmodels.modifyLogViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,11 +40,23 @@ public class modifyLogController implements Initializable {
     @FXML
     private ChoiceBox<String> logChoiceBox;
 
-    private businesslayer.logManager logManager;
+    public modifyLogViewModel modifyLogViewModel = new modifyLogViewModel();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        logManager = logManagerFactory.GetLogManager();
+        //Bindings to modifyLogViewModel
+        logDate.textProperty().bindBidirectional(modifyLogViewModel.getLogDate());
+        logReport.textProperty().bindBidirectional(modifyLogViewModel.getLogReport());
+        logDistance.textProperty().bindBidirectional(modifyLogViewModel.getLogDistance());
+        logTotalTime.textProperty().bindBidirectional(modifyLogViewModel.getLogTotalTime());
+        logRating.textProperty().bindBidirectional(modifyLogViewModel.getLogRating());
+        logAverageSpeed.textProperty().bindBidirectional(modifyLogViewModel.getLogAverageSpeed());
+        logWeather.textProperty().bindBidirectional(modifyLogViewModel.getLogWeather());
+        logBreaks.textProperty().bindBidirectional(modifyLogViewModel.getLogBreaks());
+        logStart.textProperty().bindBidirectional(modifyLogViewModel.getLogStart());
+        logEnd.textProperty().bindBidirectional(modifyLogViewModel.getLogEnd());
+
+
         updateChoiceBox();
 
         logger.info("Initialized modifyLogView");
@@ -51,8 +64,7 @@ public class modifyLogController implements Initializable {
 
     public void updateChoiceBox(){
         logChoices = FXCollections.observableArrayList();
-        List<String> tourNames = new ArrayList<String>();
-        tourNames = logManager.GetLogNames();
+        List<String> tourNames = modifyLogViewModel.gettingLogNames();
 
         logChoices.addAll(tourNames);
         logChoiceBox.setItems(logChoices);
@@ -67,20 +79,7 @@ public class modifyLogController implements Initializable {
         //System.out.println(indexTourDate);
 
         if(indexTourDate!=null) {
-            String tempDate = logDate.textProperty().getValue();
-            String tempReport = logReport.textProperty().getValue();
-            String tempDistance = logDistance.textProperty().getValue();
-            String tempTotalTime = logTotalTime.textProperty().getValue();
-            Integer tempRating = Integer.parseInt(logRating.textProperty().getValue());
-            Integer tempBreaks = Integer.parseInt(logBreaks.textProperty().getValue());
-            String tempSpeed = logAverageSpeed.textProperty().getValue();
-            String tempWeather = logWeather.textProperty().getValue();
-            String tempStart = logStart.textProperty().getValue();
-            String tempEnd = logEnd.textProperty().getValue();
-
-            //System.out.println(wow);
-            logManager.UpdateLogItem(indexTourDate, tempDate, tempReport, tempDistance, tempTotalTime,
-                    tempRating, tempSpeed, tempWeather, tempBreaks, tempStart, tempEnd);
+            modifyLogViewModel.updatingLog(indexTourDate);
 
             //clear choiceBox and fields
             clearFields();

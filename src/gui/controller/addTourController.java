@@ -24,8 +24,6 @@ public class addTourController implements Initializable {
     public TextField tourStart;
     public TextField tourEnd;
 
-    private businesslayer.tourManager tourManager;
-
     public addTourViewModel addTourViewModel = new addTourViewModel();
 
     public void addTourButton(ActionEvent actionEvent) throws IOException {
@@ -56,5 +54,7 @@ public class addTourController implements Initializable {
         tourDistance.textProperty().bindBidirectional(addTourViewModel.getTourDistance());
         tourStart.textProperty().bindBidirectional(addTourViewModel.getTourStart());
         tourEnd.textProperty().bindBidirectional(addTourViewModel.getTourEnd());
+
+        logger.info("Bindings are made");
     }
 }

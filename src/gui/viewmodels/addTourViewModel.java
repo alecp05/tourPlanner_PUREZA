@@ -1,15 +1,20 @@
 package gui.viewmodels;
 
 import businesslayer.tourManagerFactory;
+import gui.controller.addTourController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import lombok.Getter;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 
 public class addTourViewModel {
+
+    private static final Logger logger = LogManager.getLogger(addTourViewModel.class);
 
     private businesslayer.tourManager tourManager;
 

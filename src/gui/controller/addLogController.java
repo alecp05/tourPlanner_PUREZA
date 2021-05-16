@@ -4,6 +4,7 @@ import businesslayer.logManager;
 import businesslayer.logManagerFactory;
 import businesslayer.tourManagerFactory;
 import gui.Main;
+import gui.viewmodels.addLogViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +25,8 @@ public class addLogController implements Initializable {
 
     private static final Logger logger = LogManager.getLogger(addLogController.class);
 
+    private addLogViewModel addLogViewModel = new addLogViewModel();
+
     //public String logName;
     public TextField logDate;
     public TextField logReport;
@@ -40,40 +43,12 @@ public class addLogController implements Initializable {
     @FXML
     private ChoiceBox<String> tourChoiceBox;
 
-    private businesslayer.logManager logManager;
-    private businesslayer.tourManager tourManager;
 
     public void addLogButton(ActionEvent actionEvent) throws IOException {
-        logManager = logManagerFactory.GetLogManager();
 
-        //set choiceBox
         String logName = tourChoiceBox.getValue();
-
-        String tempDate = logDate.textProperty().getValue();
-        String tempReport = logReport.textProperty().getValue();
-        String tempDistance = logDistance.textProperty().getValue();
-        String tempTotalTime = logTotalTime.textProperty().getValue();
-        Integer tempRating = 0;
-        Integer tempBreaks = 0;
-        if(logName != null){
-            tempRating = Integer.parseInt(logRating.textProperty().getValue());
-            tempBreaks = Integer.parseInt(logBreaks.textProperty().getValue());
-        }
-        String tempSpeed = logAverageSpeed.textProperty().getValue();
-        String tempWeather = logWeather.textProperty().getValue();
-        String tempStart = logStart.textProperty().getValue();
-        String tempEnd = logEnd.textProperty().getValue();
-
-
-        //System.out.println(logName + "test");
-        //insert into database
-        if(logName != null) {
-            logManager.InsertLogItem(logName, tempDate, tempReport, tempDistance, tempTotalTime,
-                   tempRating, tempSpeed, tempWeather, tempBreaks, tempStart, tempEnd);
-
-            clearFields();
-        }
-
+        addLogViewModel.addingLog(logName);
+        clearFields();
         logger.info("Add-Button clicked");
 
         //update tourView
@@ -97,11 +72,25 @@ public class addLogController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tourManager = tourManagerFactory.GetTourManager();
+
+        //Bindings to addLogViewModel
+        logDate.textProperty().bindBidirectional(addLogViewModel.getLogDate());
+        logReport.textProperty().bindBidirectional(addLogViewModel.getLogReport());
+        logDistance.textProperty().bindBidirectional(addLogViewModel.getLogDistance());
+        logTotalTime.textProperty().bindBidirectional(addLogViewModel.getLogTotalTime());
+        logRating.textProperty().bindBidirectional(addLogViewModel.getLogRating());
+        logAverageSpeed.textProperty().bindBidirectional(addLogViewModel.getLogAverageSpeed());
+        logWeather.textProperty().bindBidirectional(addLogViewModel.getLogWeather());
+        logBreaks.textProperty().bindBidirectional(addLogViewModel.getLogBreaks());
+        logStart.textProperty().bindBidirectional(addLogViewModel.getLogStart());
+        logEnd.textProperty().bindBidirectional(addLogViewModel.getLogEnd());
+
+
+        //tourManager = tourManagerFactory.GetTourManager();
         tourChoices = FXCollections.observableArrayList();
 
         List<String> tourNames = new ArrayList<String>();
-        tourNames = tourManager.GetTourNames();
+        tourNames = addLogViewModel.gettingTours();
 
         tourChoices.addAll(tourNames);
         tourChoiceBox.getItems().addAll(tourChoices);

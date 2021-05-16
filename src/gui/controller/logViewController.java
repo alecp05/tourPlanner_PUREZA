@@ -2,6 +2,7 @@ package gui.controller;
 
 import businesslayer.logManagerFactory;
 import gui.Main;
+import gui.viewmodels.logViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -63,13 +64,10 @@ public class logViewController implements Initializable {
 
     private logModel currentItem;
 
-    //businessLayer communication
-    private businesslayer.logManager logManager;
+    public logViewModel logViewModel = new logViewModel();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        logManager = logManagerFactory.GetLogManager();
-
         //log TableView
         setUpLogTable();
         formatLogTableColumns();
@@ -81,7 +79,7 @@ public class logViewController implements Initializable {
 
     private void setUpLogTable(){
         tableLogItems = FXCollections.observableArrayList();
-        tableLogItems.addAll(logManager.GetLogItems());
+        tableLogItems.addAll(logViewModel.gettingLogItems());
     }
 
     private void formatLogTableColumns(){
@@ -103,7 +101,7 @@ public class logViewController implements Initializable {
     public void searchingAction(ActionEvent actionEvent) {
         tableLogItems.clear();
 
-        List<logModel> logItems = logManager.SearchLogItems(searchingField.textProperty().getValue(), false);
+        List<logModel> logItems = logViewModel.searchingLogItems(searchingField.textProperty().getValue());
         tableLogItems.addAll(logItems);
 
         logger.info("Search Function clicked");
@@ -114,7 +112,7 @@ public class logViewController implements Initializable {
 
         searchingField.textProperty().setValue("");
 
-        List<logModel> LogItems = logManager.GetLogItems();
+        List<logModel> LogItems = logViewModel.gettingLogItems();
         tableLogItems.addAll(LogItems);
 
         logger.info("Items cleared");
@@ -160,11 +158,12 @@ public class logViewController implements Initializable {
 
     public void deleteLogButton(ActionEvent actionEvent) {
         if(currentItem != null) {
-            logManager.DeleteLogItem(currentItem.logDate, currentItem.logReport);
+            //logManager.DeleteLogItem(currentItem.logDate, currentItem.logReport);
+            logViewModel.deletingLog(currentItem.logDate, currentItem.logReport);
 
             //update table
             tableLogItems.clear();
-            List<logModel> LogItems = logManager.GetLogItems();
+            List<logModel> LogItems = logViewModel.gettingLogItems();
             tableLogItems.addAll(LogItems);
 
             logger.info("Add-Button clicked");
