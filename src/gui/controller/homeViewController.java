@@ -92,7 +92,6 @@ public class homeViewController implements Initializable {
 
     public homeViewModel homeViewModel = new homeViewModel();
 
-
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

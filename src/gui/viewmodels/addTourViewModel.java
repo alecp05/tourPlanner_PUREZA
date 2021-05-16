@@ -1,15 +1,20 @@
 package gui.viewmodels;
 
+import businesslayer.inputValidation.inputValidationImplementation;
+import businesslayer.inputValidation.inputValidationManager;
 import businesslayer.tourManagerFactory;
 import gui.controller.addTourController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TextField;
 import lombok.Getter;
+import models.tourModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class addTourViewModel {
@@ -29,28 +34,46 @@ public class addTourViewModel {
     @Getter
     private final StringProperty tourEnd = new SimpleStringProperty("");
 
-    public void addingTour() throws IOException {
+    public inputValidationManager inputValidationManager = new inputValidationImplementation();
+
+    public int addingTour() throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
 
         String tempName = tourName.getValue();
         //System.out.println(tempName);
         String tempDescription = tourDescription.getValue();
         Integer tempDistance = 0;
-
-        if(tempName != "") {
+        if(tourDistance.getValue() != "") {
             tempDistance = Integer.parseInt(tourDistance.getValue());
         }
         String tempStart = tourStart.getValue();
         String tempEnd = tourEnd.getValue();
 
-        //insert to database
-        if(tempName != ""){
+        //Check if TourName is already taken
+        List<tourModel> allTours = tourManager.GetTourItems();
+        for(int i = 0; i < allTours.size();i++){
+            if(allTours.get(i).tourName.equals(tempName))
+                return 3;
+        }
+
+        //insert to database if Fields are not empty
+        if((tempName != "") && (tempDistance != 0) && (tempStart != "") && (tempEnd != "")){
             tourManager.InsertTourItem(tempName,tempDescription,tempDistance,tempStart,tempEnd);
             addMapImage(tempName,tempStart,tempEnd);
+            //System.out.println(tempDescription+tempDistance+tempStart+tempEnd);
+            return 1;
         }
+        return 2;
     }
 
     public void addMapImage(String tourName, String start, String end) throws IOException {
         tourManager.GetImageRequest(tourName,start,end);
+    }
+
+    //inputValidation
+    public void setFieldRestrictions(TextField tourDistance, TextField tourStart, TextField tourEnd){
+        inputValidationManager.onlyNumbers(tourDistance);
+        inputValidationManager.onlyCharacters(tourStart);
+        inputValidationManager.onlyCharacters(tourEnd);
     }
 }
