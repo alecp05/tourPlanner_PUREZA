@@ -61,7 +61,7 @@ public class addLogController implements Initializable {
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/emptyFieldsView.fxml"));
                 Stage stage = new Stage();
                 stage.setTitle("Error on Input");
-                stage.setScene(new Scene(root, 700, 450));
+                stage.setScene(new Scene(root, 400, 200));
                 stage.show();
             }
             catch (IOException e) {
@@ -74,7 +74,7 @@ public class addLogController implements Initializable {
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/wrongFormatView.fxml"));
                 Stage stage = new Stage();
                 stage.setTitle("Error on Format");
-                stage.setScene(new Scene(root, 700, 450));
+                stage.setScene(new Scene(root, 550, 300));
                 stage.show();
             }
             catch (IOException e) {
