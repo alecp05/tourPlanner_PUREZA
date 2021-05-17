@@ -22,4 +22,8 @@ public class jsonConverterHandler {
             //System.out.println(selectedFile.getAbsolutePath());
         }
     }
+
+    public void exportingTour(String tourName) throws IOException {
+        jsonConversionImplementation.creatingExport(tourName);
+    }
 }

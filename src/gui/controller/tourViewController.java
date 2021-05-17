@@ -249,4 +249,15 @@ public class tourViewController implements Initializable {
         Main m = new Main();
         m.changeScene("views/tourView.fxml");
     }
+
+    public void exportTourButton(ActionEvent actionEvent) throws IOException {
+        if(currentItem != null) {
+            //System.out.println(currentItem.tourName);
+            tourViewModel.exportAction(currentItem.tourName);
+            logger.info("Exporting-Button clicked");
+        }else {
+            logger.warn("No Tour selected");
+        }
+        currentItem = null;
+    }
 }

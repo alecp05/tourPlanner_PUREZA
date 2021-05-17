@@ -45,4 +45,9 @@ public class tourViewModel {
         jsonConverterHandler = new jsonConverterHandler();
         jsonConverterHandler.fileChoosing();
     }
+
+    public void exportAction(String tourName) throws IOException {
+        jsonConverterHandler = new jsonConverterHandler();
+        jsonConverterHandler.exportingTour(tourName);
+    }
 }
