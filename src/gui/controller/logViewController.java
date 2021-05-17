@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -24,6 +25,7 @@ import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -32,6 +34,10 @@ public class logViewController implements Initializable {
     private static final Logger logger = LogManager.getLogger(logViewController.class);
 
     public TextField searchingField;
+
+    public ChoiceBox tourChoiceBox;
+    //binding to choiceBox
+    private ObservableList<String> tourChoices;
 
     //Log tableView
     @FXML
@@ -75,6 +81,9 @@ public class logViewController implements Initializable {
         formatLogTableColumns();
 
         SetCurrentLogItem();
+
+        //setting choiceBox
+        setChoiceBox();
 
         logger.info("Initialized LogView");
     }
@@ -186,6 +195,29 @@ public class logViewController implements Initializable {
         }
         catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void setChoiceBox() throws IOException {
+        tourChoices = FXCollections.observableArrayList();
+
+        List<String> tourNames = new ArrayList<String>();
+        tourNames = logViewModel.gettingTours();
+
+        tourChoices.addAll(tourNames);
+        tourChoiceBox.getItems().addAll(tourChoices);
+    }
+
+    public void setToursLogsButton(ActionEvent actionEvent) throws IOException {
+        if(tourChoiceBox.getValue() != null){
+            //get logs with the specific tour
+            List<logModel> specifiedLogs = logViewModel.gettingTheLogs((String) tourChoiceBox.getValue());
+            tableLogItems.clear();
+            tableLogItems.addAll(specifiedLogs);
+
+            logger.info("Logs with specified Tour has been set in TableView");
+        }else{
+            logger.warn("No Tour has been selected in ChoiceBox");
         }
     }
 }
