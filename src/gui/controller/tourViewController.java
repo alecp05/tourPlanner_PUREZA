@@ -240,4 +240,13 @@ public class tourViewController implements Initializable {
         }
         currentItem = null;
     }
+
+    public void importTourButton(ActionEvent actionEvent) throws IOException {
+        tourViewModel.importAction();
+        logger.info("Import-Button clicked");
+
+        //update tourView
+        Main m = new Main();
+        m.changeScene("views/tourView.fxml");
+    }
 }

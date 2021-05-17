@@ -11,6 +11,10 @@ public class tourModel {
     @Getter @Setter public String tourStart;
     @Getter @Setter public String tourEnd;
 
+    public tourModel(){
+        super();
+    }
+
     public tourModel(String name, String description, int distance, String start, String end){
         tourName = name;
         tourDescription = description;

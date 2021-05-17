@@ -1,5 +1,6 @@
 package gui.viewmodels;
 
+import businesslayer.jsonConverter.jsonConverterHandler;
 import businesslayer.tourManagerFactory;
 import javafx.scene.image.Image;
 import models.tourModel;
@@ -12,6 +13,7 @@ import java.util.List;
 public class tourViewModel {
     //businessLayer communication
     private businesslayer.tourManager tourManager;
+    private jsonConverterHandler jsonConverterHandler;
 
     public List<tourModel> gettingTourItems() throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
@@ -37,5 +39,10 @@ public class tourViewModel {
     public void gettingTourNameForReport(String tourName) throws IOException {
         tourManager = tourManagerFactory.GetTourManager();
         tourManager.GetTourNameForReport(tourName);
+    }
+
+    public void importAction() throws IOException {
+        jsonConverterHandler = new jsonConverterHandler();
+        jsonConverterHandler.fileChoosing();
     }
 }

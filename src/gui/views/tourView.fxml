@@ -181,7 +181,7 @@
                </padding>
             </Button>
             <Pane prefHeight="79.0" prefWidth="66.0" />
-            <Button mnemonicParsing="false" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #DEF2F1;" text="Add Image">
+            <Button mnemonicParsing="false" onAction="#importTourButton" prefHeight="19.0" prefWidth="112.0" style="-fx-background-color: #DEF2F1;" text="Import">
                <HBox.margin>
                   <Insets bottom="30.0" top="30.0" />
                </HBox.margin>
