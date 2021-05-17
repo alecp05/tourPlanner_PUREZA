@@ -8,9 +8,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -61,6 +65,8 @@ public class modifyLogController implements Initializable {
 
         updateChoiceBox();
 
+        modifyLogViewModel.setFieldRestrictions(logRating,logBreaks,logStart,logEnd);
+
         logger.info("Initialized modifyLogView");
     }
 
@@ -80,19 +86,46 @@ public class modifyLogController implements Initializable {
         String indexTourDate = logChoiceBox.getValue();
         //System.out.println(indexTourDate);
 
-        if(indexTourDate!=null) {
-            modifyLogViewModel.updatingLog(indexTourDate);
 
+        int tempNumber = modifyLogViewModel.updatingLog(indexTourDate);
+
+        if(tempNumber == 2){
+            Parent root;
+            try {
+                root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/emptyFieldsView.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Error on Input");
+                stage.setScene(new Scene(root, 700, 450));
+                stage.show();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            logger.warn("Empty UserInput-Fields");
+        }else if(tempNumber == 3){
+            Parent root;
+            try {
+                root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/views/wrongFormatView.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Error on Format");
+                stage.setScene(new Scene(root, 700, 450));
+                stage.show();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            logger.warn("Wrong Format from UserInput");
+        } else{
             //clear choiceBox and fields
             clearFields();
             updateChoiceBox();
-
-            logger.info("Edit-Button clicked");
-
             //update tourView
             Main m = new Main();
             m.changeScene("views/logView.fxml");
         }
+
+            logger.info("Edit-Button clicked");
+
     }
 
     public void clearFields(){
