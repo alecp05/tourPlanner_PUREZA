@@ -64,6 +64,7 @@ public class modifyLogController implements Initializable {
 
 
         updateChoiceBox();
+        setTextFields();
 
         modifyLogViewModel.setFieldRestrictions(logRating,logBreaks,logStart,logEnd);
 
@@ -126,6 +127,21 @@ public class modifyLogController implements Initializable {
 
             logger.info("Edit-Button clicked");
 
+    }
+
+    public void setTextFields(){
+        logChoiceBox.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((newValue != null) && (oldValue != newValue)) {
+                try {
+                    //fill the textFields
+                    modifyLogViewModel.settingTextFields(logChoiceBox.getValue(), logDate, logReport, logDistance, logTotalTime, logRating,
+                            logAverageSpeed, logWeather, logBreaks, logStart, logEnd);
+                    logger.info("TextFields are being filled");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }));
     }
 
     public void clearFields(){

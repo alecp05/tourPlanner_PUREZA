@@ -8,6 +8,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TextField;
 import lombok.Getter;
+import models.tourModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -64,6 +65,24 @@ public class modifyTourViewModel {
         logger.warn("Empty UserInput");
         return 2;
 
+    }
+
+
+    //set Text in Fields
+    public void settingTextFields(String tourName,TextField description, TextField distance, TextField start, TextField end) throws IOException {
+        tourManager = tourManagerFactory.GetTourManager();
+        List<tourModel> allTours = tourManager.GetTourItems();
+        tourModel specificTour;
+
+        for(int i = 0; i<allTours.size(); i++){
+            if(allTours.get(i).tourName.equals(tourName)){
+                specificTour = allTours.get(i);
+                description.setText(specificTour.getTourDescription());
+                distance.setText(Integer.toString(specificTour.getTourDistance()));
+                start.setText(specificTour.getTourStart());
+                end.setText(specificTour.getTourEnd());
+            }
+        }
     }
 
     //inputValidation

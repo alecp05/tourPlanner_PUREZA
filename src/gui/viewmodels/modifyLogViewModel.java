@@ -7,6 +7,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.TextField;
 import lombok.Getter;
+import models.logModel;
+import models.tourModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -85,6 +87,35 @@ public class modifyLogViewModel {
         }
     }
 
+    //set Text in Fields
+    public void settingTextFields(String logNameDate,TextField dateStamp, TextField report, TextField distance, TextField time, TextField rating,
+                                  TextField speed,TextField weather, TextField breaks, TextField start, TextField end) throws IOException {
+            logManager= logManagerFactory.GetLogManager();
+
+        List<logModel> allTours = logManager.GetLogItems();
+        logModel specificLog;
+
+        //split logNameDate
+        String[] tempName = logNameDate.split("\\|");
+        String logName = tempName[0];
+        String date = tempName[1];
+        //System.out.println(logName + " " + date);
+
+        for(int j = 0; j<allTours.size(); j++){
+            if (allTours.get(j).tourName.equals(logName) && allTours.get(j).logDate.equals(date)) {
+                dateStamp.setText(allTours.get(j).getLogDate());
+                report.setText(allTours.get(j).getLogReport());
+                distance.setText(allTours.get(j).getLogDistance());
+                time.setText(allTours.get(j).getLogTotalTime());
+                rating.setText(Integer.toString(allTours.get(j).getLogRating()));
+                speed.setText(allTours.get(j).getLogAverageSpeed());
+                weather.setText(allTours.get(j).getLogWeatherCondition());
+                breaks.setText(Integer.toString(allTours.get(j).getLogBreaksTaken()));
+                start.setText(allTours.get(j).getLogStartingPoint());
+                end.setText(allTours.get(j).getLogEndPoint());
+            }
+        }
+    }
     //inputValidation
     public void setFieldRestrictions(TextField logRating, TextField logBreaks, TextField logStart, TextField logEnd){
         inputValidationManager.onlyNumbers(logBreaks);

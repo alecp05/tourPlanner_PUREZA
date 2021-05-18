@@ -53,7 +53,6 @@ public class modifyTourController implements Initializable {
         tourStart.textProperty().bindBidirectional(modifyTourViewModel.getTourStart());
         tourEnd.textProperty().bindBidirectional(modifyTourViewModel.getTourEnd());
 
-
         tourChoices = FXCollections.observableArrayList();
 
         List<String> tourNames = new ArrayList<String>();
@@ -61,6 +60,9 @@ public class modifyTourController implements Initializable {
 
         tourChoices.addAll(tourNames);
         tourChoiceBox.getItems().addAll(tourChoices);
+
+        //fill the TextFields with chosen TourInfos
+        setTextInFields();
 
         //set input ValidationsRestrictions
         modifyTourViewModel.setFieldRestrictions(tourDistance,tourStart,tourEnd);
@@ -93,6 +95,20 @@ public class modifyTourController implements Initializable {
 
             logger.info("Edit-Button clicked");
         }
+    }
+
+    public void setTextInFields() throws IOException {
+        tourChoiceBox.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if ((newValue != null) && (oldValue != newValue)) {
+                try {
+                    //fill the textFields
+                    modifyTourViewModel.settingTextFields(tourChoiceBox.getValue(), tourDescription, tourDistance, tourStart, tourEnd);
+                    logger.info("TextFields are being filled");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }));
     }
 
     public void clearFields(){
