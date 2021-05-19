@@ -6,6 +6,8 @@ import dataaccesslayer.file.filesystem;
 import models.logModel;
 import models.tourModel;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -44,4 +46,6 @@ public class tourModelDAO {
     public void SavePdfReport(List<tourModel> tours, List<logModel> logs) throws FileNotFoundException, MalformedURLException {
         fileAccess.SavePdfReport(tours,logs);
     };
+    public BufferedImage getGalleryImage(String fileName){return fileAccess.getGalleryImages(fileName);};
+    public List<String> getGalleryNames(){return fileAccess.getGalleryNames();};
 }

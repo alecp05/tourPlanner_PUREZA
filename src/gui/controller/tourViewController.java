@@ -135,6 +135,10 @@ public class tourViewController implements Initializable {
         Main m = new Main();
         m.changeScene("views/homeView.fxml");
     }
+    public void galleryButtonAction(ActionEvent actionEvent) throws IOException {
+        Main m = new Main();
+        m.changeScene("views/galleryView.fxml");
+    }
 
     public void clearAction(ActionEvent actionEvent) throws IOException {
         tableTourItems.clear();

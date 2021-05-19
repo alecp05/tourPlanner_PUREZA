@@ -139,6 +139,10 @@ public class logViewController implements Initializable {
         Main m = new Main();
         m.changeScene("views/homeView.fxml");
     }
+    public void galleryButtonAction(ActionEvent actionEvent) throws IOException {
+        Main m = new Main();
+        m.changeScene("views/galleryView.fxml");
+    }
 
     public void addLogButton(ActionEvent actionEvent) {
         Parent root;
@@ -220,4 +224,6 @@ public class logViewController implements Initializable {
             logger.warn("No Tour has been selected in ChoiceBox");
         }
     }
+
+
 }

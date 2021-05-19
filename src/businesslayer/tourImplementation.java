@@ -6,6 +6,7 @@ import dataaccesslayer.daos.tourModelDAO;
 import javafx.scene.image.Image;
 import models.tourModel;
 
+import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -86,6 +87,16 @@ public class tourImplementation implements tourManager{
     @Override
     public void GetTourNameForReport(String tourName) throws FileNotFoundException, MalformedURLException {
         reportHandler.GetTourNameForReport(tourName);
+    }
+
+    @Override
+    public BufferedImage getGalleryImages(String fileName) {
+        return tourModelDAO.getGalleryImage(fileName);
+    }
+
+    @Override
+    public List<String> getGalleryNames() {
+        return tourModelDAO.getGalleryNames();
     }
 
 

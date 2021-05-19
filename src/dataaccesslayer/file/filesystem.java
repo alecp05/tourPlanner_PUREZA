@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 public class filesystem implements fileAccess {
@@ -152,6 +154,36 @@ public class filesystem implements fileAccess {
         logger.info("Tour-PDF has been created");
 
         document.close();
+    }
+
+    @Override
+    public BufferedImage getGalleryImages(String fileName) {
+        File tmpDir = new File("./galleryImages/"+fileName);
+        boolean exists = tmpDir.exists();
+        BufferedImage img = null;
+        if(exists){
+            try {
+                img = ImageIO.read(tmpDir);
+            } catch (IOException e) {
+            }
+        }
+        return img;
+    }
+
+    @Override
+    public List<String> getGalleryNames() {
+        File folder = new File("./galleryImages");
+        File[] listOfFiles = folder.listFiles();
+        //allFileNames
+        List<String> allFileNames = new ArrayList<>();
+
+        for (File file : listOfFiles) {
+            if (file.isFile()) {
+                allFileNames.add(file.getName());
+                //System.out.println(file.getName());
+            }
+        }
+        return allFileNames;
     }
 
     private void createStatisticsReport(String tourName,List<logModel> logs) throws FileNotFoundException {

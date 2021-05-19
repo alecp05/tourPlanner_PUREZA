@@ -170,6 +170,10 @@ public class homeViewController implements Initializable {
         Main m = new Main();
         m.changeScene("views/logView.fxml");
     }
+    public void galleryButtonAction(ActionEvent actionEvent) throws IOException {
+        Main m = new Main();
+        m.changeScene("views/galleryView.fxml");
+    }
 
     public void searchingAction(ActionEvent actionEvent) throws IOException {
         tableTourItems.clear();
@@ -197,4 +201,5 @@ public class homeViewController implements Initializable {
 
         logger.info("Clear Function clicked");
     }
+
 }
