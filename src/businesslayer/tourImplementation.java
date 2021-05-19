@@ -99,5 +99,10 @@ public class tourImplementation implements tourManager{
         return tourModelDAO.getGalleryNames();
     }
 
+    @Override
+    public void saveImageForGallery(BufferedImage img, String imagePath) {
+        tourModelDAO.saveImageForGallery(img,imagePath);
+    }
+
 
 }

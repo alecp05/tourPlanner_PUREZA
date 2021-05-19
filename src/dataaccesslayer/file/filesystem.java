@@ -167,6 +167,7 @@ public class filesystem implements fileAccess {
             } catch (IOException e) {
             }
         }
+        logger.info("Getting GalleryImages");
         return img;
     }
 
@@ -183,7 +184,20 @@ public class filesystem implements fileAccess {
                 //System.out.println(file.getName());
             }
         }
+        logger.info("Getting GalleryNames of Images");
         return allFileNames;
+    }
+
+    @Override
+    public void saveImageForGallery(BufferedImage savingImage, String path) {
+
+        File file = new File("./galleryImages/" + path);
+        try {
+            ImageIO.write(savingImage, "png", file);  // ignore returned boolean
+            logger.info("Selected Image is being uploaded");
+        } catch(IOException e) {
+            logger.warn("Writing to File has an Error");;
+        }
     }
 
     private void createStatisticsReport(String tourName,List<logModel> logs) throws FileNotFoundException {

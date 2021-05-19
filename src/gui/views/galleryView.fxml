@@ -14,7 +14,8 @@
     </columnConstraints>
     <rowConstraints>
         <RowConstraints maxHeight="100.0" minHeight="8.0" prefHeight="36.8" vgrow="ALWAYS" />
-        <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="237.0" vgrow="ALWAYS" />
+        <RowConstraints maxHeight="1000.0" minHeight="10.0" prefHeight="194.8" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="123.79999999999998" minHeight="56.0" prefHeight="90.0" />
     </rowConstraints>
     <children>
         <Label alignment="TOP_CENTER" prefHeight="34.0" prefWidth="700.0" style="-fx-background-color: #3aafa9; -fx-background-radius: 25px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0); -fx-border-radius: 25px;" text="Gallery" textFill="WHITE">
@@ -79,9 +80,9 @@
                   <ListView fx:id="galleryView" layoutX="-3.0" prefHeight="236.0" prefWidth="116.0" style="-fx-background-color: #2B7A78;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane fx:id="container" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="imageViewGallery" fitHeight="236.0" fitWidth="261.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ImageView fx:id="imageViewGallery" fitHeight="${container.height}" fitWidth="${container.width}" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </items>
@@ -89,5 +90,21 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </SplitPane>
+        <HBox prefHeight="50.0" prefWidth="368.0" style="-fx-background-color: #17252A; -fx-background-radius: 30px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0); -fx-border-color: #ffffff; -fx-border-radius: 25px;" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+            <GridPane.margin>
+                <Insets bottom="25.0" left="20.0" right="10.0" top="20.0" />
+            </GridPane.margin>
+            <children>
+                <Pane prefHeight="86.0" prefWidth="25.0" />
+                <Button mnemonicParsing="false" onAction="#uploadImageButton" prefHeight="50.0" prefWidth="138.0" style="-fx-background-color: #DEF2F1;" text="Upload Image">
+                    <HBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
     </children>
 </GridPane>

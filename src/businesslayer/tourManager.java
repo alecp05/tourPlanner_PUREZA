@@ -23,4 +23,5 @@ public interface tourManager {
     public void GetTourNameForReport(String tourName) throws FileNotFoundException, MalformedURLException;
     public BufferedImage getGalleryImages(String fileName);
     public List<String> getGalleryNames();
+    public void saveImageForGallery(BufferedImage img, String imagePath);
 }

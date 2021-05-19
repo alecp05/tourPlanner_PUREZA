@@ -2,6 +2,7 @@ package gui.controller;
 
 import businesslayer.tourImplementation;
 import gui.Main;
+import gui.viewmodels.galleryViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -10,8 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.stage.FileChooser;
 import models.tourModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -22,12 +27,14 @@ import java.util.ResourceBundle;
 
 public class galleryViewController implements Initializable {
 
+    private static final Logger logger = LogManager.getLogger(galleryViewController.class);
+
     public ListView<String> galleryView;
     public ImageView imageViewGallery;
 
     private ObservableList<String> imageNames;
 
-    private businesslayer.tourManager tourManager = new tourImplementation();
+    public galleryViewModel galleryViewModel = new galleryViewModel();
 
     //select current
     private String currentItem = null;
@@ -57,7 +64,7 @@ public class galleryViewController implements Initializable {
 
     public void setUpListView(){
         imageNames = FXCollections.observableArrayList();
-        imageNames.addAll(tourManager.getGalleryNames());
+        imageNames.addAll(galleryViewModel.getGalleryNames());
         galleryView.setItems(imageNames);
 
         //System.out.println(tourManager.getGalleryNames());
@@ -67,19 +74,24 @@ public class galleryViewController implements Initializable {
         galleryView.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if((newValue != null) && (oldValue != newValue)){
                 currentItem = newValue;
-                //System.out.println(currentItem.tourName + "--------");
-
-                //logger.info("Current Item is set");
 
                 setImages(currentItem);
-                System.out.println(currentItem);
+                //System.out.println(currentItem);
+                logger.info("Current Item is set");
             }
         }));
     }
 
     public void setImages(String currentName){
-        BufferedImage img = tourManager.getGalleryImages(currentName);
+        BufferedImage img = galleryViewModel.getGalleryImage(currentName);
         WritableImage image = SwingFXUtils.toFXImage(img, null);
         imageViewGallery.setImage(image);
+    }
+
+    public void uploadImageButton(ActionEvent actionEvent) throws IOException {
+
+        galleryViewModel.uploadingButton();
+        setUpListView();
+        logger.info("Upload-Button clicked");
     }
 }

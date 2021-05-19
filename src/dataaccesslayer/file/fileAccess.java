@@ -16,4 +16,5 @@ public interface fileAccess {
     public void SavePdfReport(List<tourModel> tours, List<logModel> logs) throws FileNotFoundException, MalformedURLException;
     public BufferedImage getGalleryImages(String fileName);
     public List<String> getGalleryNames();
+    public void saveImageForGallery(BufferedImage savingImage, String path);
 }
