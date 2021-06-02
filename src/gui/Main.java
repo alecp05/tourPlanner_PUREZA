@@ -1,6 +1,5 @@
 package gui;
 
-import gui.controller.testingLog4;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
