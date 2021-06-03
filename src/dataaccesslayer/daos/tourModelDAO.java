@@ -49,4 +49,5 @@ public class tourModelDAO {
     public BufferedImage getGalleryImage(String fileName){return fileAccess.getGalleryImages(fileName);};
     public List<String> getGalleryNames(){return fileAccess.getGalleryNames();};
     public void saveImageForGallery(BufferedImage img, String imagePath){fileAccess.saveImageForGallery(img,imagePath);}
+    public void deletingImageFromGallery(String galleryImageName){ fileAccess.deleteImageFromGallery(galleryImageName);};
 }

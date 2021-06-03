@@ -35,4 +35,9 @@ public class galleryViewModel {
             //System.out.println(pathForImage);
         }
     }
+
+    public void deletingButton(String currentItemName) {
+        tourManager.deleteImageFromGallery(currentItemName);
+
+    }
 }

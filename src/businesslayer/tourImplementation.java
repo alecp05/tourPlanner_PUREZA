@@ -104,5 +104,10 @@ public class tourImplementation implements tourManager{
         tourModelDAO.saveImageForGallery(img,imagePath);
     }
 
+    @Override
+    public void deleteImageFromGallery(String galleryImageName) {
+        tourModelDAO.deletingImageFromGallery(galleryImageName);
+    }
+
 
 }

@@ -17,4 +17,5 @@ public interface fileAccess {
     public BufferedImage getGalleryImages(String fileName);
     public List<String> getGalleryNames();
     public void saveImageForGallery(BufferedImage savingImage, String path);
+    public void deleteImageFromGallery(String galleryImageName);
 }

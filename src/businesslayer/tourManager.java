@@ -24,4 +24,5 @@ public interface tourManager {
     public BufferedImage getGalleryImages(String fileName);
     public List<String> getGalleryNames();
     public void saveImageForGallery(BufferedImage img, String imagePath);
+    public void deleteImageFromGallery(String galleryImageName);
 }

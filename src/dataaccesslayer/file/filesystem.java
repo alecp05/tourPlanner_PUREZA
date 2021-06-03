@@ -200,6 +200,21 @@ public class filesystem implements fileAccess {
         }
     }
 
+    @Override
+    public void deleteImageFromGallery(String galleryImageName) {
+        String path = "./galleryImages/" + galleryImageName;
+
+        File tmpDir = new File(path);
+        boolean exists = tmpDir.exists();
+        if(exists){
+            tmpDir.delete();
+            logger.info("Image has been deleted");
+        }else {
+            logger.warn("Image not found");
+        }
+
+    }
+
     private void createStatisticsReport(String tourName,List<logModel> logs) throws FileNotFoundException {
 
         Text titleLog = new Text("\nLogs").setFontSize(18f).setBold();

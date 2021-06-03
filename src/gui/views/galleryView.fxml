@@ -104,6 +104,15 @@
                         <Font name="Century Gothic" size="12.0" />
                     </font>
                 </Button>
+                <Pane prefHeight="86.0" prefWidth="25.0" />
+                <Button mnemonicParsing="false" onAction="#deleteGalleryImage" prefHeight="50.0" prefWidth="138.0" style="-fx-background-color: #DEF2F1;" text="Delete Image">
+                    <HBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Century Gothic" size="12.0" />
+                    </font>
+                </Button>
             </children>
         </HBox>
     </children>

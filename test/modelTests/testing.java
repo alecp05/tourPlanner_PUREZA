@@ -8,9 +8,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class testing {
-
-    @Test
-    public void testShowCards_shouldBeInDatabase() throws IOException {
-        System.out.println("hey");
-    }
+//
+//    @Test
+//    public void testShowCards_shouldBeInDatabase() throws IOException {
+//        System.out.println("FirstTest");
+//    }
 }

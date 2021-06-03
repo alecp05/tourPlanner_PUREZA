@@ -94,4 +94,14 @@ public class galleryViewController implements Initializable {
         setUpListView();
         logger.info("Upload-Button clicked");
     }
+
+    public void deleteGalleryImage(ActionEvent actionEvent) {
+
+        galleryViewModel.deletingButton(currentItem);
+
+        //clear View
+        setUpListView();
+        imageViewGallery.setImage(null);
+        logger.info("Upload-Button clicked");
+    }
 }
